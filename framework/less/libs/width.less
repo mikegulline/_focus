@@ -20,10 +20,12 @@ body {
 	}
 }
 /* sizing  =================================== */
+	@siteP:			80px;
 	@w-site:		1400px;
 	@w-sidebar: 	400px;
-	@p-site:  		10px 80px;
-	@p-sidebar: 	10px 30px;
+	@p-site:  		10px @siteP;
+	@p-sidebarR: 	10px @siteP 10px 0;
+	@p-sidebarL: 	10px 0 10px @siteP;
 	#wrapper {
 		max-width: @w-site;
 	}
@@ -41,13 +43,17 @@ body {
 		padding: @p-site;
 	}
 	#primary {
-		padding: @p-sidebar;
+		padding: @p-sidebarR;
+	}
+	.sidebar-left #primary {
+		padding: @p-sidebarL;
 	}
 @media only screen and (max-width: 1399px) {  
-
+	@siteP:			60px;
 	@w-site:		1200px;
-	@p-site:  		10px 60px;
-	@p-sidebar: 	10px 20px;
+	@p-site:  		10px @siteP;
+	@p-sidebarR: 	10px @siteP 10px 0;
+	@p-sidebarL: 	10px 0 10px @siteP;
 	#wrapper {
 		max-width: @w-site;
 	}
@@ -55,14 +61,19 @@ body {
 		padding: @p-site;
 	}
 	#primary {
-		padding: @p-sidebar;
-	}      
+		padding: @p-sidebarR;
+	}
+	.sidebar-left #primary {
+		padding: @p-sidebarL;
+	}    
 	      
 }/*/mediaquery*/      
 @media only screen and (max-width: 1199px) {    
+	@siteP:			50px;
 	@w-site:		1024px;
-	@p-site:  		10px 50px;
-	@p-sidebar: 	10px 20px;
+	@p-site:  		10px @siteP;
+	@p-sidebarR: 	10px @siteP 10px 0;
+	@p-sidebarL: 	10px 0 10px @siteP;
 	#wrapper {
 		max-width: @w-site;
 	}
@@ -70,14 +81,19 @@ body {
 		padding: @p-site;
 	}
 	#primary {
-		padding: @p-sidebar;
-	}              
+		padding: @p-sidebarR;
+	}
+	.sidebar-left #primary {
+		padding: @p-sidebarL;
+	}             
 }/*/mediaquery*/      
 @media only screen and (max-width: 1023px) { 
+	@siteP:			40px;
 	@w-site:		768px;
 	@w-sidebar: 	300px;
-	@p-site:  		10px 40px;
-	@p-sidebar: 	10px 20px;
+	@p-site:  		10px @siteP;
+	@p-sidebarR: 	10px @siteP 10px 0;
+	@p-sidebarL: 	10px 0 10px @siteP;
 	#wrapper {
 		max-width: @w-site;
 	}
@@ -95,16 +111,20 @@ body {
 		padding: @p-site;
 	}
 	#primary {
-		padding: @p-sidebar;
+		padding: @p-sidebarR;
+	}
+	.sidebar-left #primary {
+		padding: @p-sidebarL;
 	}
 }/*/mediaquery*/
 @media only screen and (max-width: 767px) { 
+	@siteP:			30px;
 	@w-site:		480px;
-	@p-site:  		10px 30px;
+	@p-site:  		10px @siteP;
 	#wrapper {
 		max-width: @w-site;
 	}
-	#branding, #menu, #copyright, #content, #primary {
+	#branding, #menu, #copyright, #content, #primary, .sidebar-left #primary  {
 		padding: @p-site;
 	}
 	#content, .sidebar-left #content {
@@ -120,12 +140,13 @@ body {
 	} 
 }/*/mediaquery*/
 @media only screen and (max-width: 479px) {
+	@siteP:			15px;
 	@w-site:		320px;
-	@p-site:  		10px 15px;
+	@p-site:  		10px @siteP;
 	#wrapper {
 		max-width: @w-site;
 	}
-	#branding, #menu, #copyright, #content, #primary {
+	#branding, #menu, #copyright, #content, #primary, .sidebar-left #primary  {
 		padding: @p-site;
 	} 	
 }/*/mediaquery*/

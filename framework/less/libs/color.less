@@ -1,8 +1,49 @@
+#makeColors{
+	.menu(@c) {
+		background: @c;
+		color: lighten(@c, 30%);
+		a {
+			color: lighten(@c, 30%);
+		}
+		a:hover, .current-menu-item a {
+			color: lighten(@c, 70%);
+		}
+		input[type="text"] {
+			border-color: transparent;
+		}
+		input[type="submit"] {
+			color: #fff;
+			background-color: lighten(@c, 20%);
+			border-color: transparent;
+			&:hover {
+				background-color: darken(@c, 20%);
+			}
+		}
+	}
+	.menu2() {
+		background: @color2;
+		color: lighten(@color2, 50%);
+		a {
+			color: lighten(@color2, 50%);
+		}
+		a:hover {
+			color: lighten(@color2, 80%);
+		}
+		input[type="submit"],
+		input[type="button"],
+		.button {
+			color: #fff;
+			&:hover {
+				background-color: @color1;
+			}
+		}
+	}
+}
 body {
 	background: #fafafa;
 }
 #wrapper {
-	background: #fff;
+	
 }
 #header {
 	#branding {
@@ -13,8 +54,12 @@ body {
 			color: @color1;
 		}
 	}
+	#menu {
+		#makeColors>.menu(@color1);
+	}
 }
 #container {
+	background: #fff;
 	#content {
 		
 	}
@@ -23,15 +68,22 @@ body {
 	}
 }
 #footer {
-	border-top: 1px solid #eee;
+	
 }
 
 
 h1, h2, h3, h4, h5, h6 {
-	color: #666;
+	color: @cHeaders;
 }
 p {
-	color: #777;
+	color: @cText;
+}
+blockquote {
+	border-color: lighten(@cText, 50%);
+	color: lighten(@cText, 25%);
+	* {
+		color: inherit;	
+	}
 }
 #content {
 	a {

@@ -42,6 +42,41 @@ h6 {
 strong, b {
 	font-weight: 600;
 }
+.entry-content {
+	ul, ol {
+		margin: 20px 0;
+		padding: 0 0 0 30px;
+		ul, ol {
+			margin: 0;
+		}
+	}
+}
+.entry-content { 
+	ul {
+		list-style: circle outside;
+		ul {
+			list-style: disc outside;
+			ul {
+				list-style: square outside;
+				ul {
+					list-style: circle outside;
+				}
+			}
+		}
+	}
+	ol {
+		list-style: decimal outside;
+		ol {
+			list-style: upper-alpha outside;
+			ol {
+				list-style: lower-roman outside;
+				ol {
+					list-style: lower-alpha outside;
+				}
+			}
+		}
+	}
+}
 sub, sup {
 	font-size: 75%;
 	line-height: 0;
@@ -57,7 +92,13 @@ sup {
 small {
   font-size: 80%;
 }
-
+blockquote {
+	border-left: 5px solid #DDDDDD;
+    font-family: "Georgia",serif;
+    font-style: italic;
+    padding-left: 1.5em;
+	font-size: 120%;
+}
 #content {
 	a:hover {
 		text-decoration:underline
