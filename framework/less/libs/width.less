@@ -1,0 +1,131 @@
+body {
+	margin: 0;
+	padding: 0;
+	text-align:center;
+}
+#wrapper {
+	text-align:left;
+	margin: auto;
+}
+#container {
+	position:relative;
+}
+#sidebar {
+	position: absolute;
+	top: 0 ;
+	right: 0;
+	.sidebar-left & {
+		right: auto;
+		left: 0;
+	}
+}
+/* sizing  =================================== */
+	@w-site:		1400px;
+	@w-sidebar: 	400px;
+	@p-site:  		10px 80px;
+	@p-sidebar: 	10px 30px;
+	#wrapper {
+		max-width: @w-site;
+	}
+	#content {
+		margin-right: @w-sidebar;
+		.sidebar-left & {
+			margin-right: auto;
+			margin-left: @w-sidebar;
+		}
+	}
+	#sidebar {
+		width: @w-sidebar;
+	}
+	#branding, #menu, #copyright, #content {
+		padding: @p-site;
+	}
+	#primary {
+		padding: @p-sidebar;
+	}
+@media only screen and (max-width: 1399px) {  
+
+	@w-site:		1200px;
+	@p-site:  		10px 60px;
+	@p-sidebar: 	10px 20px;
+	#wrapper {
+		max-width: @w-site;
+	}
+	#branding, #menu, #copyright, #content {
+		padding: @p-site;
+	}
+	#primary {
+		padding: @p-sidebar;
+	}      
+	      
+}/*/mediaquery*/      
+@media only screen and (max-width: 1199px) {    
+	@w-site:		1024px;
+	@p-site:  		10px 50px;
+	@p-sidebar: 	10px 20px;
+	#wrapper {
+		max-width: @w-site;
+	}
+	#branding, #menu, #copyright, #content {
+		padding: @p-site;
+	}
+	#primary {
+		padding: @p-sidebar;
+	}              
+}/*/mediaquery*/      
+@media only screen and (max-width: 1023px) { 
+	@w-site:		768px;
+	@w-sidebar: 	300px;
+	@p-site:  		10px 40px;
+	@p-sidebar: 	10px 20px;
+	#wrapper {
+		max-width: @w-site;
+	}
+	#content {
+		margin-right: @w-sidebar;
+		.sidebar-left & {
+			margin-right: auto;
+			margin-left: @w-sidebar;
+		}
+	}
+	#sidebar {
+		width: @w-sidebar;
+	}
+	#branding, #menu, #copyright, #content {
+		padding: @p-site;
+	}
+	#primary {
+		padding: @p-sidebar;
+	}
+}/*/mediaquery*/
+@media only screen and (max-width: 767px) { 
+	@w-site:		480px;
+	@p-site:  		10px 30px;
+	#wrapper {
+		max-width: @w-site;
+	}
+	#branding, #menu, #copyright, #content, #primary {
+		padding: @p-site;
+	}
+	#content, .sidebar-left #content {
+		margin-right: 0;
+		margin-left: 0;
+	}
+	#sidebar, .sidebar-left #sidebar {
+		width: 	auto;
+		position: relative;
+		top:  auto;
+		right:  auto;
+		left: auto;
+	} 
+}/*/mediaquery*/
+@media only screen and (max-width: 479px) {
+	@w-site:		320px;
+	@p-site:  		10px 15px;
+	#wrapper {
+		max-width: @w-site;
+	}
+	#branding, #menu, #copyright, #content, #primary {
+		padding: @p-site;
+	} 	
+}/*/mediaquery*/

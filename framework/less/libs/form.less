@@ -1,0 +1,88 @@
+input[type="text"], 
+input[type="password"], 
+input[type="email"], 
+input[type="url"], 
+input[type="date"], 
+input[type="month"], 
+input[type="time"], 
+input[type="datetime"], 
+input[type="datetime-local"], 
+input[type="week"], 
+input[type="number"], 
+input[type="search"], 
+input[type="tel"], 
+input[type="color"], 
+select, 
+textarea,
+input[type="submit"],
+input[type="button"],
+.button {
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-webkit-text-size-adjust: none;
+	-webkit-font-smoothing: subpixel-antialiased;
+	font-weight: 200;
+    border: 1px solid rgba(0, 0, 0, .1);
+    #hl>.round-all-corners(4px);
+    #hl>.box-shadow(none);
+    display: inline-block;
+    padding: 7px;
+	font-size:100%;
+	cursor: pointer;
+	line-height: normal;
+	vertical-align: baseline;
+	white-space: nowrap;
+	font-family: inherit;
+	text-decoration: none;
+	max-width:100%
+	
+}
+input[type="submit"]::-moz-focus-inner, 
+input[type="button"]::-moz-focus-inner {
+	border:0;
+}
+input[type="submit"],
+input[type="button"],
+.button {
+    text-align: center;
+	background-color: @color1;
+    color: #fff;   
+	-moz-user-select: none;
+	&:hover {
+		background-color: @color2;
+	}
+}
+input:focus, textarea:focus {
+	border: 1px solid #1F8DD6;
+	#hl>.box-shadow(inset 0 0 5px 1px lighten(#1F8DD6, 40));
+}
+input, .button, textarea {#hl>.transition(all, .35s, ease);}
+#commentform {
+	p {position: relative;
+		padding-left: 120px;
+	}
+	label {
+		width: 110px;
+		display:block;
+		text-align:right;
+		position:absolute;
+		left: 0;
+	}
+	.form-allowed-tags {
+		font-size: 80%;	
+	}
+}
+@media only screen and (max-width: 1199px) {         
+	              
+}/*/mediaquery*/      
+@media only screen and (max-width: 1023px) { 
+	
+}/*/mediaquery*/
+@media only screen and (max-width: 767px) {
+	
+}/*/mediaquery*/
+@media only screen and (max-width: 479px) {
+	
+}/*/mediaquery*/

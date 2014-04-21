@@ -1,0 +1,37 @@
+#menu {
+	#search {
+		float: right;
+	}
+	.menu ul {
+		padding: 0;
+		margin: 0 0 0 -20px;
+		list-style: none;
+		li {
+			margin: 0;
+			padding: 0;
+			position:relative;	
+			text-align:left;
+			cursor:pointer;
+			a {
+				display: block;
+				color: @color1;
+				#hl>.transition(all, .35s, ease);
+			}
+			a:hover {
+				color: @color2;
+			}
+		}
+		> li {
+			display: inline-block;
+			> a {
+				padding: 4px 20px 5px 20px;
+				font-size: 125%;
+			}
+			ul {
+				li {
+					display: block;
+				}
+			}
+		}
+	}
+}
