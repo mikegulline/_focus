@@ -8,8 +8,8 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-    <div id="wrapper" class="hfeed">
-        <header id="header" role="banner">
+    <div id="wrapper" class="hfeed wrapper">
+        <header id="header" role="banner" class="wrapper">
             <section id="branding">
             <!--
                 <div id="site-title"><h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php esc_attr_e( get_bloginfo( 'name' ), '_focus' ); ?>" rel="home"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></a></h1></div>

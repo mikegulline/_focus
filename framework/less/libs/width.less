@@ -3,7 +3,7 @@ body {
 	padding: 0;
 	text-align:center;
 }
-#wrapper {
+.wrapper {
 	text-align:left;
 	margin: auto;
 }
@@ -19,15 +19,19 @@ body {
 		left: 0;
 	}
 }
+#sidebar, #content {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
 /* sizing  =================================== */
 	@siteP:			80px;
 	@w-site:		1400px;
 	@w-sidebar: 	400px;
 	@p-site:  		10px @siteP;
-	@p-sidebarR: 	10px @siteP 10px 0;
-	@p-sidebarL: 	10px 0 10px @siteP;
-	#wrapper {
-		max-width: @w-site;
+	@p-sidebarR: 	auto @siteP auto 0;
+	@p-sidebarL: 	auto 0 auto @siteP;
+	.wrapper {
+		width: @w-site;
 	}
 	#content {
 		margin-right: @w-sidebar;
@@ -52,10 +56,10 @@ body {
 	@siteP:			60px;
 	@w-site:		1200px;
 	@p-site:  		10px @siteP;
-	@p-sidebarR: 	10px @siteP 10px 0;
-	@p-sidebarL: 	10px 0 10px @siteP;
-	#wrapper {
-		max-width: @w-site;
+	@p-sidebarR: 	0px @siteP 0px 0;
+	@p-sidebarL: 	0px 0 0px @siteP;
+	.wrapper {
+		width: @w-site;
 	}
 	#branding, #menu, #copyright, #content {
 		padding: @p-site;
@@ -72,10 +76,10 @@ body {
 	@siteP:			50px;
 	@w-site:		1024px;
 	@p-site:  		10px @siteP;
-	@p-sidebarR: 	10px @siteP 10px 0;
-	@p-sidebarL: 	10px 0 10px @siteP;
-	#wrapper {
-		max-width: @w-site;
+	@p-sidebarR: 	0px @siteP 0px 0;
+	@p-sidebarL: 	0px 0 0px @siteP;
+	.wrapper {
+		width: @w-site;
 	}
 	#branding, #menu, #copyright, #content {
 		padding: @p-site;
@@ -92,10 +96,10 @@ body {
 	@w-site:		768px;
 	@w-sidebar: 	300px;
 	@p-site:  		10px @siteP;
-	@p-sidebarR: 	10px @siteP 10px 0;
-	@p-sidebarL: 	10px 0 10px @siteP;
-	#wrapper {
-		max-width: @w-site;
+	@p-sidebarR: 	0px @siteP 0px 0;
+	@p-sidebarL: 	0px 0 0px @siteP;
+	.wrapper {
+		width: @w-site;
 	}
 	#content {
 		margin-right: @w-sidebar;
@@ -121,8 +125,8 @@ body {
 	@siteP:			30px;
 	@w-site:		480px;
 	@p-site:  		10px @siteP;
-	#wrapper {
-		max-width: @w-site;
+	.wrapper {
+		width: @w-site;
 	}
 	#branding, #menu, #copyright, #content, #primary, .sidebar-left #primary  {
 		padding: @p-site;
@@ -143,8 +147,8 @@ body {
 	@siteP:			15px;
 	@w-site:		320px;
 	@p-site:  		10px @siteP;
-	#wrapper {
-		max-width: @w-site;
+	.wrapper {
+		width: @w-site;
 	}
 	#branding, #menu, #copyright, #content, #primary, .sidebar-left #primary  {
 		padding: @p-site;
