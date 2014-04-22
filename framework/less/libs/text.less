@@ -1,4 +1,4 @@
-body{
+body {
 	font-size: 16px;
 	line-height:1.5;
 	font-family: @font-text;
@@ -38,6 +38,9 @@ h5 {
 }
 h6 {
 	font-size: 90%;
+}
+#branding h1 {
+	font-size: 400%;
 }
 strong, b {
 	font-weight: 600;
@@ -113,6 +116,9 @@ blockquote {
 .m-b {
 	& + * {margin-top: 0;}
 }
+.m-b-0 {
+	margin-bottom: 0px;
+}
 .m-b-5 {
 	margin-bottom: 5px;
 }
@@ -132,8 +138,8 @@ blockquote {
 	
 }/*/mediaquery*/
 @media only screen and (max-width: 767px) {
-	
+	body {font-size:90%}
 }/*/mediaquery*/
 @media only screen and (max-width: 479px) {
-	
+	body {font-size:80%}
 }/*/mediaquery*/
