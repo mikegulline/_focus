@@ -1,11 +1,14 @@
 #makeColors{
 	.menu(@c) {
 		background: @c;
+		&.stickymenu  {
+			background: fadeout(@c, 10%);
+		}
 		color: lighten(@c, 30%);
 		a {
 			color: lighten(@c, 30%);
 		}
-		a:hover, .current-menu-item a {
+		a:hover, .current-menu-item > a, .current_page_item > a {
 			color: lighten(@c, 70%);
 		}
 		input[type="text"] {
@@ -54,9 +57,10 @@ body {
 			color: @color1;
 		}
 	}
-	#menu {
-		#makeColors>.menu(@color1);
-	}
+	
+}
+#menu {
+	#makeColors>.menu(@color1);
 }
 #container {
 	background: #222;

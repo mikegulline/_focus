@@ -3,9 +3,19 @@ body {
 	padding: 0;
 	text-align:center;
 }
+.menu-fix {
+	position: fixed;
+	top: 0;
+	z-index:2;
+	display:none;
+	&.show {
+		display: block;
+	}
+}
 .wrapper {
 	text-align:left;
 	margin: auto;
+	
 }
 #container {
 	position:relative;

@@ -41,21 +41,25 @@ var lq_width_triggers = {
 };
 var lq_menu_sticky = {
 	init: function(){
+		var win = jQuery(window)
 		var uf = ori()
 		var html = jQuery('html') 
-		var h = jQuery('#header')
-		var m = jQuery('#menu')
-		jQuery(window).bind('load scroll '+ uf, function(event){
-			var t = jQuery(this)
-			if((html.hasClass('menu-sticky')&&t.scrollTop()<400)||!html.hasClass('menu-sticky')){
-				html.removeClass('menu-sticky').attr('style', '');
-				var mp = parseInt(m.css('padding-top'))+parseInt(m.css('padding-bottom'))
-				var my = m.position()
-				var y = my.top
-				
-				if(y<(t.scrollTop()+parseInt(html.css('margin-top')))) {
-					h.css('top', html.css('margin-top'))
-					html.addClass('menu-sticky').attr('style', 'margin-top: '+Math.floor(y+m.height()+mp)+'px !important;');
+		var htmlMarginTop = parseInt(html.css('margin-top'))
+		var menu = jQuery('#menu')
+		var menuY = menu.position().top-htmlMarginTop
+		var on = 0
+		var sticky = menu.clone().prependTo('.menu-fix')
+		var m = jQuery('.menu-fix')
+		win.bind('load scroll '+ uf, function(event){
+			if(win.scrollTop()<menuY){
+				if(on){
+					m.removeClass('show').css('top', 0)
+					on = 0
+				}
+			}else{
+				if(!on){
+					m.addClass('show').css('top', html.css('margin-top'))
+					on = 1
 				}
 			}
 		});
