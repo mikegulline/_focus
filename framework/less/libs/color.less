@@ -1,8 +1,8 @@
 #makeColors{
 	.menu(@c) {
 		background: @c;
-		&.stickymenu  {
-			background: fadeout(@c, 10%);
+		.menu-fix &  {
+			background: fadeout(@c, 5%);
 		}
 		color: lighten(@c, 30%);
 		a {
@@ -82,7 +82,7 @@ body {
 	}
 }
 .menu-sub-bottom.site-pad {
-	background: #222;
+	background: #1c1c1c;
 	padding-bottom: 7px;
 	padding-top: 7px;
 }
