@@ -1,8 +1,8 @@
 #makeColors{
 	.menu(@c) {
 		background: @c;
-		&.stickymenu  {
-			background: fadeout(@c, 10%);
+		.menu-fix &  {
+			background: fadeout(@c, 5%);
 		}
 		color: lighten(@c, 30%);
 		a {
@@ -43,10 +43,20 @@
 	}
 }
 body {
-	background: #111;
+	background: #333 url(images/cartographer.png) fixed top center; 
+	//background: #333 ;//url(images/test-back.jpg) no-repeat center center fixed; 
+	//-webkit-background-size: cover;
+	//-moz-background-size: cover;
+	//-o-background-size: cover;
+	//background-size: cover;
 }
 #wrapper {
 	
+}
+.menu-sub-top.site-pad {
+	background: #111;
+	padding-bottom: 7px;
+	padding-top: 7px;
 }
 #header {
 	#branding {
@@ -63,13 +73,18 @@ body {
 	#makeColors>.menu(@color1);
 }
 #container {
-	background: #222;
+	background: #111;
 	#content {
 		
 	}
 	#sidebar {
 
 	}
+}
+.menu-sub-bottom.site-pad {
+	background: #1c1c1c;
+	padding-bottom: 7px;
+	padding-top: 7px;
 }
 #footer {
 	

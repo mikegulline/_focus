@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<section id="content" role="main">
+<section id="content" class="site-pad"role="main">
 	<?php if ( have_posts() ) : ?>
     <header class="header">
     	<h1 class="entry-title"><?php printf( __( 'Search Results for: %s', '_focus' ), get_search_query() ); ?></h1>
