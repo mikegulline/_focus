@@ -1,6 +1,7 @@
 jQuery(function() {
 	lq_width_triggers.init()
-	lq_menu_sticky.init()
+	jQuery('#menu').stickyMenu()
+	jQuery('.menu-sub-top').stickyMenu()
 });
 window.onload = function(){
 	scrollTo(0, 1)
@@ -39,32 +40,6 @@ var lq_width_triggers = {
 		
 	}
 };
-var lq_menu_sticky = {
-	init: function(){
-		var win = jQuery(window)
-		var uf = ori()
-		var html = jQuery('html') 
-		var htmlMarginTop = parseInt(html.css('margin-top'))
-		var menu = jQuery('#menu')
-		var menuY = menu.position().top-htmlMarginTop
-		var on = 0
-		var sticky = menu.clone().prependTo('.menu-fix')
-		var m = jQuery('.menu-fix')
-		win.bind('load scroll '+ uf, function(event){
-			if(win.scrollTop()<menuY){
-				if(on){
-					m.removeClass('show').css('top', 0)
-					on = 0
-				}
-			}else{
-				if(!on){
-					m.addClass('show').css('top', html.css('margin-top'))
-					on = 1
-				}
-			}
-		});
-	}
-};
 function ori(){
 	var ua = navigator.userAgent;
 	var isiPad = /iPad/i.test(ua) || /iPhone/i.test(ua) || /iPod/i.test(ua);
@@ -72,3 +47,31 @@ function ori(){
 	if(isiPad) uf = 'orientationchange';	
 	return uf;
 }
+(function($){
+	$.fn.stickyMenu = function() {
+		var win = jQuery(window)
+		var uf = ori()
+		var html = jQuery('html') 
+		var htmlMarginTop = parseInt(html.css('margin-top'))
+		var m = jQuery('.menu-fix')
+		this.each(function(){
+			var menu = jQuery(this)
+			var menuY = Math.floor(menu.position().top-htmlMarginTop)
+			var on = 0
+			var sticky = menu.clone().prependTo(m)
+			win.bind('load scroll '+ uf, function(event){
+				m.css('top', html.css('margin-top'))
+				if(win.scrollTop()<=menuY-5){
+					if(on){
+						sticky.removeClass('show')
+						on = 0
+					}
+				}else if(!on){
+					sticky.addClass('show')
+					on = 1
+				}
+			});
+		});
+		return this;
+	};
+})(jQuery); 

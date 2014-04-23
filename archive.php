@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<section id="content" role="main">
+<section id="content" class="site-pad"role="main">
     <header class="header">
         <h1 class="entry-title"><?php 
         if ( is_day() ) { printf( __( 'Daily Archives: %s', '_focus' ), get_the_time( get_option( 'date_format' ) ) ); }
