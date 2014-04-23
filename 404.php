@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<section id="content" class="site-pad"role="main">
+<section id="content" role="main">
     <article id="post-0" class="post not-found">
         <header class="header">
         	<h1 class="entry-title"><?php _e( 'Not Found', '_focus' ); ?></h1>
