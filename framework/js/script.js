@@ -1,10 +1,37 @@
 jQuery(function() {
 	lq_width_triggers.init()
-	jQuery('#menu').stickyMenu()
 	jQuery('.menu-sub-top').stickyMenu()
+	jQuery('#menu').stickyMenu()
+	scrollTo(0, 1)
 });
 window.onload = function(){
-	scrollTo(0, 1)
+	lq_scroll_to_anchor.init()
+}
+var lq_scroll_to_anchor = {
+	init: function(){
+		if(h = window.location.hash) {
+			lq_scroll_to_anchor.scrollAnimation()
+		}
+		jQuery('a[href*=#]:not([href=#])').click(function() {
+			if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+				var target = jQuery(this.hash);
+				target = target.length ? target : jQuery('[name=' + this.hash.slice(1) +']');
+				if (target.length) {
+					lq_scroll_to_anchor.scrollAnimation()
+					return false;
+				}
+			}
+		});
+	},
+	scrollAnimation: function(){
+		var padding = 0
+		jQuery('.menu-fix [data-height]').each(function(){
+			padding += parseInt(jQuery(this).attr('data-height'))
+		})
+		jQuery('html,body').animate({
+			 scrollTop: jQuery(h).offset().top-parseInt(jQuery('html').css('margin-top'))-padding
+		}, 1000, 'easeInOutCubic');
+	}
 }
 var lq_width_triggers = {
 	init: function(){
@@ -52,16 +79,22 @@ function ori(){
 		var win = jQuery(window)
 		var uf = ori()
 		var html = jQuery('html') 
-		var htmlMarginTop = parseInt(html.css('margin-top'))
 		var m = jQuery('.menu-fix')
 		this.each(function(){
 			var menu = jQuery(this)
-			var menuY = Math.floor(menu.position().top-htmlMarginTop)
 			var on = 0
-			var sticky = menu.clone().prependTo(m)
+			var offset = menu.height()+parseInt(menu.css('padding-top'))+parseInt(menu.css('padding-bottom'))
+			var sticky = menu.clone().attr('data-height', offset).appendTo(m)
+			var addPos = sticky.prev().attr('data-height')
+			if(addPos) {
+				sticky.attr('data-y', addPos)
+				var menuY = Math.floor(menu.position().top-addPos)
+			}else{
+				var menuY = Math.floor(menu.position().top)
+			}
 			win.bind('load scroll '+ uf, function(event){
 				m.css('top', html.css('margin-top'))
-				if(win.scrollTop()<=menuY-5){
+				if(win.scrollTop()<=menuY){
 					if(on){
 						sticky.removeClass('show')
 						on = 0

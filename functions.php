@@ -63,8 +63,9 @@ function _focus_comments_number( $count ){
 // Add Front End Javascript ================================================
 	add_action( 'wp_enqueue_scripts', 'liqid_enqueue_and_register_my_scripts' );
 	function liqid_enqueue_and_register_my_scripts(){
-		$font = 'Titillium+Web:200,200italic,600,600italic|Roboto+Slab:400,100,300,700|Open+Sans:300,300italic,600,600italic';
+		$font = 'Titillium+Web:200,200italic,600,600italic|Roboto+Slab:400,100,300,700|Open+Sans:400,400italic,700,700italic';
 		wp_enqueue_script('jquery');
+		wp_enqueue_script("jquery-effects-core");
 		wp_enqueue_script('liqid-scripts', get_template_directory_uri().'/framework/js/script.js', array(), '',  true);
 		wp_enqueue_style('liqid-css-fonts', 'http://fonts.googleapis.com/css?family='.$font, false, null, 'all');
 	}

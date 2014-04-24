@@ -9,14 +9,12 @@ body {
 }
 .menu-fix {
 	position: fixed;
+	z-index: 9999;
 	top: 0;
 	> *{
-		visibility: hidden;
-		position:relative;
-		z-index:0;
+		display: none;
 		&.show {
-			visibility:  visible;
-			z-index:99;
+			display: block
 		}
 	}
 }
