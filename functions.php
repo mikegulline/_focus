@@ -59,7 +59,22 @@ function _focus_comments_number( $count ){
 		return $count;
 	}
 }
+
+
+
 ////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+// inc files ================================================
+/*
+	$includes = array(
+		'framework/file.fl'
+		
+	);
+	foreach ( $includes as $i ) {
+		locate_template( $i, true );
+	}
+*/
+
 // Add Front End Javascript ================================================
 	add_action( 'wp_enqueue_scripts', 'liqid_enqueue_and_register_my_scripts' );
 	function liqid_enqueue_and_register_my_scripts(){
@@ -96,3 +111,4 @@ function _focus_comments_number( $count ){
 		return $old;
 	}
 
+?>

@@ -43,8 +43,9 @@
 	}
 }
 body {
-	background: #333 url(images/cartographer.png) fixed top center; 
-	//background: #333 ;//url(images/test-back.jpg) no-repeat center center fixed; 
+	background: @cBody @imgBody; 
+	//background: @cBody url(images/cartographer.png) fixed top center; 
+	//background: @cBody ;//url(images/test-back.jpg) no-repeat center center fixed; 
 	//-webkit-background-size: cover;
 	//-moz-background-size: cover;
 	//-o-background-size: cover;
@@ -54,7 +55,7 @@ body {
 	
 }
 .menu-sub-top.site-pad {
-	background: #111;
+	background: fadeout(@cMenuSubTop, @cMenuSubTopF);
 	padding-bottom: 7px;
 	padding-top: 7px;
 }
@@ -72,8 +73,11 @@ body {
 #menu {
 	#makeColors>.menu(@color1);
 }
+body#tinymce  {
+	background: @cContent;
+}
 #container {
-	background: fadeout(#000, 50%);
+	background: fadeout(@cContent, @cContentF);
 	#content {
 		
 	}
@@ -82,7 +86,7 @@ body {
 	}
 }
 .menu-sub-bottom.site-pad {
-	background: fadeout(#111, 50%);
+	background: fadeout(@cMenuSubBottom, @cMenuSubBottomF);
 	padding-bottom: 7px;
 	padding-top: 7px;
 }
@@ -94,7 +98,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
 	color: @cHeaders;
 }
-#wrapper {
+#wrapper, body#tinymce {
 	color: @cText;
 }
 blockquote {
@@ -110,7 +114,7 @@ a {
 a:hover {
 	color: @color2;
 }
-#content {
+#content, body#tinymce {
 	
 	aside {
 		background: @color1;

@@ -24,7 +24,7 @@ var lq_scroll_to_anchor = {
 		});
 	},
 	scrollAnimation: function(){
-		var padding = 0
+		var padding = 30
 		jQuery('.menu-fix [data-height]').each(function(){
 			padding += parseInt(jQuery(this).attr('data-height'))
 		})
