@@ -1,9 +1,14 @@
+/*
+//
+// fires from framework/customize/_init.php
+//
 jQuery(function() {
 	lq_width_triggers.init()
 	jQuery('.menu-sub-top').stickyMenu()
 	jQuery('#menu').stickyMenu()
 	scrollTo(0, 1)
 });
+*/
 window.onload = function(){
 	lq_scroll_to_anchor.init()
 }

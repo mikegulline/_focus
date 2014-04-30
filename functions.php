@@ -9,8 +9,8 @@ function _focus_setup(){
 	register_nav_menus(
 		array( 
 			'main-menu' 	=> __('Main Menu', '_focus'),
-			'top' 			=> __('Top Sub Menu', 'liqid'), 
-			'bottom' 		=> __('Bottom Sub Menu', 'liqid' )
+			'top' 			=> __('Top Sub Menu', '_focus'), 
+			'bottom' 		=> __('Bottom Sub Menu', '_focus' )
 		)
 	);
 }
@@ -65,15 +65,15 @@ function _focus_comments_number( $count ){
 ////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////
 // inc files ================================================
-/*
+/**/
 	$includes = array(
-		'framework/file.fl'
+		'framework/customize/_init.php'
 		
 	);
 	foreach ( $includes as $i ) {
 		locate_template( $i, true );
 	}
-*/
+
 
 // Add Front End Javascript ================================================
 	add_action( 'wp_enqueue_scripts', 'liqid_enqueue_and_register_my_scripts' );
