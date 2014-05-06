@@ -131,7 +131,7 @@ function lq_customize_register( $wp_customize ) {
     'priority' => 50,
   ));
   $wp_customize->add_setting('lq_theme_options[global_font_family]', array(
-    'default'        => 'Droid Sans',
+    'default'        => 'Open Sans',
     'capability'     => 'edit_theme_options',
     'type'           => 'option',
   ));
@@ -141,15 +141,19 @@ function lq_customize_register( $wp_customize ) {
     'section' => 'typography',
     'type'    => 'select',
     'choices'    => array(
-      'Roboto' => 'Roboto',
-      'Lato' => 'Lato',
-      'Droid Sans' => 'Droid Sans',
-      'Open Sans' => 'Open Sans',
-      'PT Sans' => 'PT Sans',
-      'Source Sans Pro' => 'Source Sans Pro'
+		'Alegreya Sans' => 'Alegreya Sans',
+		'Arimo' => 'Arimo',
+		'Cuprum' => 'Cuprum',
+		'Lato' => 'Lato',
+		'Muli' => 'Muli',
+		'Open Sans' => 'Open Sans',
+		'Roboto' => 'Roboto',
+		'Roboto Condensed' => 'Roboto Condensed',
+		'Source Sans Pro' => 'Source Sans Pro',
+		'Titillium Web' => 'Titillium Web',
+		'Ubuntu' => 'Ubuntu',
     ),
   ));
-
   $wp_customize->add_setting('lq_theme_options[heading_font_family]', array(
     'default'        => 'Roboto Slab',
     'capability'     => 'edit_theme_options',
@@ -160,15 +164,12 @@ function lq_customize_register( $wp_customize ) {
     'label' => __('Heading Font Family', 'flat'),
     'section' => 'typography',
     'type'    => 'select',
-    'choices'    => array(
-      'Roboto Slab' => 'Roboto Slab',
-      'Droid Serif' => 'Droid Serif',
-      'Lora' => 'Lora',
-      'Bitter' => 'Bitter',
-      'Arvo' => 'Arvo',
-      'PT Serif' => 'PT Serif',
-      'Rokkitt' => 'Rokkitt',
-      'Open Sans Condensed' => 'Open Sans Condensed',
+    'choices'    => array(	
+		'Roboto' => 'Roboto',
+		'Roboto Condensed' => 'Roboto Condensed',
+		'Roboto Slab' => 'Roboto Slab',
+		'Titillium Web' => 'Titillium Web',
+		'Ubuntu' => 'Ubuntu',
     ),
   ));
   $wp_customize->add_section('layout_single', array(
@@ -310,6 +311,116 @@ add_action( 'wp_head', 'lq_custom_css' );
  * Custom Font
  */
 function lq_custom_font() {
+	$weight_headers = array(
+		'Roboto Slab' => array('
+			h1{font-weight: 100}
+			h2{font-weight: 300}
+			h3{font-weight: 400}
+			h4,h5,h6{font-weight: 400}',
+			'Roboto+Slab:400,100,300',
+			"font-family: 'Roboto Slab', serif;"
+		),
+		'Roboto' => array('
+			h1{font-weight: 300}
+			h2{font-weight: 300}
+			h3{font-weight: 300}
+			h4,h5,h6{font-weight: 500}',
+			'Roboto:300,500,500italic,300italic',
+			"font-family: 'Roboto', sans-serif;"
+		),
+		'Titillium Web' => array('
+			h1{font-weight: 200}
+			h2{font-weight: 300}
+			h3{font-weight: 400}
+			h4,h5,h6{font-weight: 600}',
+			'Titillium+Web:200,300,400,400italic,600,600italic,200italic,300italic',
+			"font-family: 'Titillium Web', sans-serif;"
+		),
+		'Roboto Condensed' => array('
+			h1{font-weight: 300}
+			h2{font-weight: 400}
+			h3{font-weight: 700}
+			h4,h5,h6{font-weight: 700}',
+			'Roboto+Condensed:300,400,400italic,700,700italic,300italic',
+			"font-family: 'Roboto Condensed', sans-serif;"
+		),
+		'Ubuntu' => array('
+			h1{font-weight: 300}
+			h2{font-weight: 300}
+			h3{font-weight: 300}
+			h4,h5,h6{font-weight: 500}',
+			'Ubuntu:300,500,300italic,500italic',
+			"font-family: 'Ubuntu', sans-serif;"
+		),
+	);
+	$weight_text = array(
+		'Open Sans' => array('
+			body{font-weight: 400;}
+			strong,b{font-weight: 600;}',
+			'Open+Sans:400,600,400italic,600italic',
+			"font-family: 'Open Sans', sans-serif;"
+		),
+		'Roboto' => array('
+			body{font-weight: 400;}
+			strong,b{font-weight: 700;}',
+			'Roboto:400,400italic,700,700italic',
+			"font-family: 'Roboto', sans-serif;"
+		),
+		'Source Sans Pro' => array('
+			body{font-weight: 400;}
+			strong,b{font-weight: 600;}',
+			'Source+Sans+Pro:400,400italic,600,600italic',
+			"font-family: 'Source Sans Pro', sans-serif;"
+		),
+		'Lato' => array('
+			body{font-weight: 400;}
+			strong,b{font-weight: 700;}',
+			'Lato:400,700,700italic,400italic',
+			"font-family: 'Lato', sans-serif;"
+		),
+		'Titillium Web' => array('
+			body{font-weight: 400;}
+			strong,b{font-weight: 600;}',
+			'Titillium+Web:400,400italic,600,600italic',
+			"font-family: 'Titillium Web', sans-serif;"
+		),
+		'Roboto Condensed' => array('
+			body{font-weight: 400;}
+			strong,b{font-weight: 700;}',
+			'Roboto+Condensed:400,400italic,700,700italic',
+			"font-family: 'Roboto Condensed', sans-serif;"
+		),
+		'Cuprum' => array('
+			body{font-weight: 400;}
+			strong,b{font-weight: 700;}',
+			'Cuprum:400,400italic,700,700italic',
+			"font-family: 'Cuprum', sans-serif;"
+		),
+		'Ubuntu' => array('
+			body{font-weight: 400;}
+			strong,b{font-weight: 700;}',
+			'Ubuntu:400,400italic,700,700italic',
+			"font-family: 'Ubuntu', sans-serif;"
+		),
+		'Arimo' => array('
+			body{font-weight: 400;}
+			strong,b{font-weight: 700;}',
+			'Arimo:400,400italic,700,700italic',
+			"font-family: 'Arimo', sans-serif;"
+		),
+		'Muli' => array('
+			body{font-weight: 300;}
+			strong,b{font-weight: 400;}',
+			'Muli:400,300,300italic,400italic',
+			"font-family: 'Muli', sans-serif;"
+		),
+		'Alegreya Sans' => array('
+			body{font-weight: 400;}
+			strong,b{font-weight: 700;}',
+			'Alegreya+Sans:400,400italic,700,700italic',
+			"font-family: 'Alegreya Sans', sans-serif;"
+		),
+	);
   $site_title_font_size = lq_get_theme_option('site_title_font_size');
   $global_font_family = lq_get_theme_option('global_font_family');
   $heading_font_family = lq_get_theme_option('heading_font_family');
@@ -317,17 +428,17 @@ function lq_custom_font() {
   if( !empty($site_title_font_size) || !empty($global_font_family) || !empty($heading_font_family)) {
     $font_import = '';
     $font_style = '';
-    if( !empty($site_title_font_size) && $site_title_font_size != '400' ) {
+    if( !empty($site_title_font_size)) {
       $font_style.= "#branding h1 {font-size:".$site_title_font_size."%}";
     }
 	
     if( !empty($global_font_family) ) {
-      $font_import.= '|'.$global_font_family;
-      $font_style.= "body {font-family:".$global_font_family."}";
+      $font_import.= '|'.$weight_text[$global_font_family][1];
+      $font_style.= "body {".$weight_text[$global_font_family][2]."}".$weight_text[$global_font_family][0];
     }
     if( !empty($heading_font_family) ) {
-      $font_import.= '|'.$heading_font_family;
-      $font_style.= "h1,h2,h3,h4,h5,h6 {font-family:".$heading_font_family."}";
+      $font_import.= '|'.$weight_headers[$heading_font_family][1];
+      $font_style.= "h1,h2,h3,h4,h5,h6 {".$weight_headers[$heading_font_family][2]."}".$weight_headers[$heading_font_family][0];
     }
 
     if( !empty($font_import) ) {

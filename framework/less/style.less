@@ -12,26 +12,27 @@
 	_focus WordPress Theme © 2014 7iqid.com
 	_focus is distributed under the terms of the GNU GPL
 */
-/*
-font-family: 'Titillium Web', sans-serif;
-font-family: 'Roboto Slab', serif;
-font-family: 'Open Sans', sans-serif;
-*/
 // vars
-	@import 'libs/vars.less'; 
+	@margin: 30px;
+	@color1: #1F8DD6;
+	@color2: #666;
+	@theme: light; /* light || dark */
+
+	
 	
 // reciprocities/helpers
 	@import 'libs/reciprocity/strppd.less'; 
 	@import 'libs/reciprocity/helpless.less'; 
 // my files
+	@import 'libs/color/@{theme}.less';
+	@import 'libs/containers.less';  
 	@import 'libs/text.less'; 
 	@import 'libs/form.less'; 
 	@import 'libs/color.less'; 
-	@import 'libs/images.less'; 
 	@import 'libs/width.less'; 
 	@import 'libs/menu.less'; 
 	@import 'libs/columns.less'; 
-	@import 'libs/objects.less'; 
+	
 	
 
 
