@@ -1,79 +1,10 @@
 @margin: 30px;
-@font-headers: 'Roboto Slab', serif;
-@font-text: 'Open Sans', sans-serif;
+
+@theme: light;  
 
 @color1: #1F8DD6;
 @color2: #999;
 
-//@cHeaders: #444;
-//@cText: #666;
-/*
-// light
-@cMenuSubTop: #fff;
-@cMenuSubTopF: 0%;
 
-@cMenuSubBottom: #fff;
-@cMenuSubBottomF: 70%;
-
-@cBody: #eee;
-@imgBody: ;
-
-@cContent: #fff;
-@cContentF: 0%;
-
-@cHeaders: #444;
-@cText: #666;
-
-
-//dark
-@cMenuSubTop: #111;
-@cMenuSubTopF: 0%;
-
-@cMenuSubBottom: #111;
-@cMenuSubBottomF: 70%;
-
-@cBody: #333;
-@imgBody: url(images/cartographer.png) fixed top center;
-
-@cContent: #000;
-@cContentF: 70%;
-
-@cHeaders: #555;
-@cText: #999;
-*/
-
-.mixin(dark) {
-	@cMenuSubTop: #111;
-	@cMenuSubTopF: 0%;
-	
-	@cMenuSubBottom: #111;
-	@cMenuSubBottomF: 70%;
-	
-	@cBody: #333;
-	@imgBody: url(images/cartographer.png) fixed top center;
-	
-	@cContent: #000;
-	@cContentF: 70%;
-	
-	@cHeaders: #555;
-	@cText: #999;
-}
-.mixin(light) {
-	@cMenuSubTop: #fff;
-	@cMenuSubTopF: 0%;
-	
-	@cMenuSubBottom: #fff;
-	@cMenuSubBottomF: 0;
-	
-	@cBody: #eee;
-	@imgBody: url(images/arches.png) fixed top center;
-	
-	@cContent: #fff;
-	@cContentF: 25%;
-	
-	@cHeaders: #333;
-	@cText: #666;
-}
-
-@switch: dark;
-.mixin(@switch);
+/* import color theme file*/
+@import 'color/@{theme}.less'; 

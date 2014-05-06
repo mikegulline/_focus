@@ -23,7 +23,7 @@
 			?>
             <section id="branding" class="site-pad">
             	<h1 class="m-b m-b-0 m-t-20"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php esc_attr_e( get_bloginfo( 'name' ), '_focus' ); ?>" rel="home"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></a></h1>
-                <p id="site-description" class="m-b-20"><?php bloginfo( 'description' ); ?></>
+                <p id="site-description" class="m-b-20"><?php bloginfo( 'description' ); ?></p>
             </section>
             <nav id="menu" role="navigation" class="site-pad">
                 <div id="search">

@@ -320,13 +320,12 @@ function lq_custom_font() {
     if( !empty($site_title_font_size) && $site_title_font_size != '400' ) {
       $font_style.= "#branding h1 {font-size:".$site_title_font_size."%}";
     }
-
-    if( !empty($global_font_family) && $global_font_family != 'Droid Sans' ) {
+	
+    if( !empty($global_font_family) ) {
       $font_import.= '|'.$global_font_family;
       $font_style.= "body {font-family:".$global_font_family."}";
     }
-
-    if( !empty($heading_font_family) && $heading_font_family != 'Roboto Slab' ) {
+    if( !empty($heading_font_family) ) {
       $font_import.= '|'.$heading_font_family;
       $font_style.= "h1,h2,h3,h4,h5,h6 {font-family:".$heading_font_family."}";
     }

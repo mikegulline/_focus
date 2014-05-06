@@ -3,5 +3,5 @@
     <span class="tag-links"><?php the_tags(); ?></span>
     <?php if ( comments_open() ) { 
     echo '<span class="meta-sep">|</span> <span class="comments-link"><a href="' . get_comments_link() . '">' . sprintf( __( 'Comments', '_focus' ) ) . '</a></span>';
-    } ?>
+    } ?> <?php edit_post_link(__( 'Edit', '_focus' ), ' | '); ?>
 </footer> 
