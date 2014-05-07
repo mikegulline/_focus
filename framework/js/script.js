@@ -46,6 +46,18 @@ var lq_width_triggers = {
 		var obj = jQuery('#container > section, #container > aside')
 		var objCheck = jQuery('#container > aside')
 		jQuery(window).bind('load '+ uf, function(event){
+			// add width class to body
+			var w = jQuery(this).width()
+			var classes = 'w1400 w1200 w1024 w960 w768 w480 w320'
+			if(w>=jQuery('body').attr('data-max-width'))  jQuery('body').removeClass(classes).addClass('w'+jQuery('body').attr('data-max-width'))
+			else if(w>=1400) jQuery('body').removeClass(classes).addClass('w1400')
+			else if(w>=1200) jQuery('body').removeClass(classes).addClass('w1200')
+			else if(w>=1024) jQuery('body').removeClass(classes).addClass('w1024')
+			else if(w>=960) jQuery('body').removeClass(classes).addClass('w960')
+			else if(w>=768) jQuery('body').removeClass(classes).addClass('w768')
+			else if(w>=480) jQuery('body').removeClass(classes).addClass('w480')
+			else if(w>=320) jQuery('body').removeClass(classes).addClass('w320')
+			// eq content and sidebar heights
 			if(widthCur != widthTest.width()){
 				widthCur = widthTest.width()
 				lq_width_triggers.colheight(obj, objCheck)

@@ -1,13 +1,24 @@
+.entry-content, #primary .xoxo {background: #ccc;}
 /* sizing  =================================== */
+.w1400 {
 	@siteP:			80px;
 	@w-site:		1400px;
 	@w-sidebar: 	400px;
 	@p-site:  		10px @siteP;
-	@p-sidebarR: 	auto @siteP auto 0;
-	@p-sidebarL: 	auto 0 auto @siteP;
+	@p-sidebarR: 	0 @siteP 0 0;
+	@p-sidebarL: 	0 0 0 @siteP;
 	.wrapper {
 		width: @w-site;
 	}
+	.site-pad {
+		padding: @p-site;
+	}
+	#primary {
+		padding: @p-sidebarR;
+	}
+	.sidebar-left #primary {
+		padding: @p-sidebarL;
+	}  
 	#content {
 		margin-right: @w-sidebar;
 		.sidebar-left & {
@@ -17,19 +28,13 @@
 	}
 	#sidebar {
 		width: @w-sidebar;
-	}
-	.site-pad {
-		padding: @p-site;
-	}
-	#primary {
-		padding: @p-sidebarR;
-	}
-	.sidebar-left #primary {
-		padding: @p-sidebarL;
-	}
-@media only screen and (max-width: 1399px) {  
+	} 
+}
+
+.w1200 {  
 	@siteP:			60px;
 	@w-site:		1200px;
+	@w-sidebar: 	400px;
 	@p-site:  		10px @siteP;
 	@p-sidebarR: 	0px @siteP 0px 0;
 	@p-sidebarL: 	0px 0 0px @siteP;
@@ -44,17 +49,28 @@
 	}
 	.sidebar-left #primary {
 		padding: @p-sidebarL;
-	}    
-	      
-}/*/mediaquery*/      
-@media only screen and (max-width: 1199px) {    
+	}  
+	#content {
+		margin-right: @w-sidebar;
+		.sidebar-left & {
+			margin-right: auto;
+			margin-left: @w-sidebar;
+		}
+	}
+	#sidebar {
+		width: @w-sidebar;
+	} 
+}  
+.w1024 {    
 	@siteP:			50px;
 	@w-site:		1024px;
+	@w-sidebar: 	350px;
 	@p-site:  		10px @siteP;
 	@p-sidebarR: 	0px @siteP 0px 0;
 	@p-sidebarL: 	0px 0 0px @siteP;
 	.wrapper {
 		width: @w-site;
+		font-size: 95%;
 	}
 	.site-pad {
 		padding: @p-site;
@@ -64,17 +80,59 @@
 	}
 	.sidebar-left #primary {
 		padding: @p-sidebarL;
-	}             
-}/*/mediaquery*/      
-@media only screen and (max-width: 1023px) { 
-	@siteP:			40px;
-	@w-site:		768px;
+	}   
+	#content {
+		margin-right: @w-sidebar;
+		.sidebar-left & {
+			margin-right: auto;
+			margin-left: @w-sidebar;
+		}
+	}
+	#sidebar {
+		width: @w-sidebar;
+	}           
+}   
+.w960 {    
+	@siteP:			45px;
+	@w-site:		960px;
 	@w-sidebar: 	300px;
 	@p-site:  		10px @siteP;
 	@p-sidebarR: 	0px @siteP 0px 0;
 	@p-sidebarL: 	0px 0 0px @siteP;
 	.wrapper {
 		width: @w-site;
+		font-size: 95%;
+	}
+	.site-pad {
+		padding: @p-site;
+	}
+	#primary {
+		padding: @p-sidebarR;
+	}
+	.sidebar-left #primary {
+		padding: @p-sidebarL;
+	}   
+	#content {
+		margin-right: @w-sidebar;
+		.sidebar-left & {
+			margin-right: auto;
+			margin-left: @w-sidebar;
+		}
+	}
+	#sidebar {
+		width: @w-sidebar;
+	}          
+}  
+.w768 { 
+	@siteP:			40px;
+	@w-site:		768px;
+	@w-sidebar: 	250px;
+	@p-site:  		10px @siteP;
+	@p-sidebarR: 	0px @siteP 0px 0;
+	@p-sidebarL: 	0px 0 0px @siteP;
+	.wrapper {
+		width: @w-site;
+		font-size: 90%;
 	}
 	#content {
 		margin-right: @w-sidebar;
@@ -95,13 +153,14 @@
 	.sidebar-left #primary {
 		padding: @p-sidebarL;
 	}
-}/*/mediaquery*/
-@media only screen and (max-width: 767px) { 
+}
+.w480{ 
 	@siteP:			30px;
 	@w-site:		480px;
 	@p-site:  		10px @siteP;
 	.wrapper {
 		width: @w-site;
+		font-size: 90%;
 	}
 	.site-pad, #primary, .sidebar-left #primary  {
 		padding: @p-site;
@@ -117,15 +176,27 @@
 		right:  auto;
 		left: auto;
 	} 
-}/*/mediaquery*/
-@media only screen and (max-width: 479px) {
+}
+.w320 {
 	@siteP:			15px;
 	@w-site:		320px;
 	@p-site:  		10px @siteP;
 	.wrapper {
 		width: @w-site;
+		font-size: 90%;
 	}
 	.site-pad, #primary, .sidebar-left #primary  {
 		padding: @p-site;
+	}
+	#content, .sidebar-left #content {
+		margin-right: 0;
+		margin-left: 0;
+	}
+	#sidebar, .sidebar-left #sidebar {
+		width: 	auto;
+		position: relative;
+		top:  auto;
+		right:  auto;
+		left: auto;
 	} 	
-}/*/mediaquery*/
+}

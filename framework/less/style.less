@@ -17,7 +17,8 @@
 	@color1: #1F8DD6;
 	@color2: #666;
 	@theme: light; /* light || dark */
-
+	@width: test; 
+	@side-border-width: 1px;
 	
 	
 // reciprocities/helpers
@@ -29,7 +30,7 @@
 	@import 'libs/text.less'; 
 	@import 'libs/form.less'; 
 	@import 'libs/color.less'; 
-	@import 'libs/width.less'; 
+	@import 'libs/width-@{width}.less'; 
 	@import 'libs/menu.less'; 
 	@import 'libs/columns.less'; 
 	

@@ -7,7 +7,7 @@
 			<?php if ( has_post_thumbnail() ) { the_post_thumbnail('liqid-feature', array('class'=> 'respond')); } ?>
             <?php the_content(); ?>
             <div class="entry-links"><?php wp_link_pages(); ?></div>
-            <?php edit_post_link(); ?>
+            <?php edit_post_link('Edit', '<p>', '</p>'); ?>
         </section>
     </article>
     <?php if ( ! post_password_required() ) comments_template( '', true ); ?>

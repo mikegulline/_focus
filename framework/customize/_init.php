@@ -172,6 +172,30 @@ function lq_customize_register( $wp_customize ) {
 		'Ubuntu' => 'Ubuntu',
     ),
   ));
+   $wp_customize->add_section('site_width', array(
+    'title'    => __('Site Width', 'flat'),
+    'priority' => 90,
+  ));
+  $wp_customize->add_setting('lq_theme_options[site_width_max]', array(
+    'default'        => 'w1400',
+    'capability'     => 'edit_theme_options',
+    'type'           => 'option',
+  ));
+  $wp_customize->add_control( 'site_width_max', array(
+    'settings' => 'lq_theme_options[site_width_max]',
+    'label' => __('Max Width', 'flat'),
+    'section' => 'site_width',
+    'type'    => 'select',
+    'choices'    => array(	
+		'1400' => '1400px',
+		'1200' => '1200px',
+		'1024' => '1024px',
+		'960' => '960px',
+		'768' => '768px',
+		'480' => '480px',
+    ),
+  ));
+  /*
   $wp_customize->add_section('layout_single', array(
     'title'    => __('Single Post', 'flat'),
     'priority' => 110,
@@ -209,6 +233,8 @@ function lq_customize_register( $wp_customize ) {
     'settings'   => 'lq_theme_options[single_author_box]',
     'type'       => 'checkbox'
   ) );
+  */
+  /*
   $wp_customize->add_section('layout_archive', array(
     'title'    => __('Archive Pages', 'flat'),
     'priority' => 100,
@@ -246,6 +272,7 @@ function lq_customize_register( $wp_customize ) {
     'settings'   => 'lq_theme_options[archive_content]',
     'type'       => 'checkbox'
   ));
+  */
 }
 add_action( 'customize_register', 'lq_customize_register' );
 
@@ -424,14 +451,14 @@ function lq_custom_font() {
   $site_title_font_size = lq_get_theme_option('site_title_font_size');
   $global_font_family = lq_get_theme_option('global_font_family');
   $heading_font_family = lq_get_theme_option('heading_font_family');
+  
 
-  if( !empty($site_title_font_size) || !empty($global_font_family) || !empty($heading_font_family)) {
+  if( !empty($site_title_font_size) || !empty($global_font_family) || !empty($heading_font_family) ) {
     $font_import = '';
     $font_style = '';
-    if( !empty($site_title_font_size)) {
+	if( !empty($site_title_font_size)) {
       $font_style.= "#branding h1 {font-size:".$site_title_font_size."%}";
     }
-	
     if( !empty($global_font_family) ) {
       $font_import.= '|'.$weight_text[$global_font_family][1];
       $font_style.= "body {".$weight_text[$global_font_family][2]."}".$weight_text[$global_font_family][0];
