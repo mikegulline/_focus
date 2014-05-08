@@ -1,39 +1,40 @@
 
-.width(@siteP, @w-site, @w-sidebar){
+.width(@siteP, @w-site, @w-sidebar, @font-size: ''){
 	@p-site:  		10px @siteP;
-	@p-sidebarR: 	0 @siteP 0 0;
-	@p-sidebarL: 	0 0 0 @siteP;
+	@p-sidebarR: 	10px @siteP 10px 0;
+	@p-sidebarL: 	10px 0 10px @siteP;
 	.wrapper {
 		width: @w-site;
+		& when (isnumber(@font-size)){
+			font-size: @font-size;
+		}
 	}
 	.site-pad {
 		padding: @p-site;
 	}
-	#primary {
+	#sidebar {
 		padding: @p-sidebarR;
-		margin-left: -@siteP/2;
-		& when (@side-border-width>0){
-			padding-left: @siteP/2;
-			border-left: @side-border-width solid @side-border-color;
+		& when (@side-border-width>0){	
+			.xoxo {
+				padding-left: @siteP/2;
+				border-left: @side-border-width solid @side-border-color;	
+			}
 		}
 	}
-	.sidebar-left #primary {
+	.sidebar-left #sidebar {
 		padding: @p-sidebarL;
-		margin-right: -@siteP/2;
 		& when (@side-border-width>0){
-			padding-right: @siteP/2;
-			border-right:  @side-border-width solid @side-border-color;
+			.xoxo {
+				padding-right: @siteP/2;
+				border-right: @side-border-width solid @side-border-color;	
+			}
 		}
 	}  
 	#content {
-		margin-right: @w-sidebar;
-		.sidebar-left & {
-			margin-right: auto;
-			margin-left: @w-sidebar;
-		}
+		width: @w-site - @w-sidebar - @siteP - @siteP;
 	}
 	#sidebar {
-		width: @w-sidebar;
+		width: @w-sidebar - @siteP;
 	} 
 }
 
@@ -46,13 +47,13 @@
 	.width(60px, 1200px, 345px);
 }  
 .w1024 {    
-	.width(50px, 1024px, 295px);          
+	.width(50px, 1024px, 295px, 95%);          
 }   
 .w960 {    
-	.width(45px, 960px, 280px);          
+	.width(45px, 960px, 280px, 90%);          
 }  
 .w768 { 
-	.width(30px, 768px, 225px);   
+	.width(30px, 768px, 225px, 90%);   
 }
 .w480{ 
 	@siteP:			20px;
@@ -62,7 +63,7 @@
 		width: @w-site;
 		font-size: 90%;
 	}
-	.site-pad, #primary, .sidebar-left #primary  {
+	.site-pad, #sidebar, .sidebar-left #sidebar  {
 		padding: @p-site;
 		margin: 0;
 	}
@@ -77,6 +78,13 @@
 		right:  auto;
 		left: auto;
 	} 
+	#sidebar {
+		& when (@side-border-width>0){	
+			.xoxo {
+				border-top: @side-border-width solid @side-border-color;	
+			}
+		}
+	}
 }
 .w320 {
 	@siteP:			15px;
@@ -86,7 +94,7 @@
 		width: @w-site;
 		font-size: 90%;
 	}
-	.site-pad, #primary, .sidebar-left #primary  {
+	.site-pad, #sidebar, .sidebar-left #sidebar  {
 		padding: @p-site;
 		margin: 0;
 	}
@@ -100,5 +108,12 @@
 		top:  auto;
 		right:  auto;
 		left: auto;
-	} 	
+	} 
+	#sidebar {
+		& when (@side-border-width>0){	
+			.xoxo {
+				border-top: @side-border-width solid @side-border-color;	
+			}
+		}
+	}
 }

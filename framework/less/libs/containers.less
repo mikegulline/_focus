@@ -17,25 +17,25 @@ body {
 }
 #container {
 	position:relative;
-}
-#sidebar {
-	position: absolute;
-	top: 0 ;
-	right: 0;
-	.sidebar-left & {
-		right: auto;
-		left: 0;
+	&:after {
+		display: block;
+		clear: both;
+		content: "";
 	}
 }
 #sidebar, #content {
 	padding-top: 10px;
 	padding-bottom: 10px;
+	float: left;
+	.sidebar-left & {
+		float: right;
+	}
+	.w480 &, .w320 & { float: none;}
+}
+.xoxo, #disqus_thread, .entry-content  {
+	margin-bottom: 45px;
 }
 #footer {padding-bottom: 50px;}
-.first-last {
-	&:first-child {margin-top: 0;}
-	&:last-child {margin-bottom: 0;}
-}
 .respond {
 	max-width: 100%;
 	height:auto;
