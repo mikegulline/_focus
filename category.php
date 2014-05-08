@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<section id="content" class="site-pad"role="main">
+<section id="content" class="site-pad page-blog" role="main">
     <header class="header">
         <h1 class="entry-title"><?php _e( 'Category Archives: ', '_focus' ); ?><?php single_cat_title(); ?></h1>
         <?php if ( '' != category_description() ) echo apply_filters( 'archive_meta', '<div class="archive-meta">' . category_description() . '</div>' ); ?>

@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<section id="content" class="site-pad"role="main">
+<section id="content" class="site-pad page-blog" role="main">
     <header class="header">
     	<h1 class="entry-title"><?php _e( 'Tag Archives: ', '_focus' ); ?><?php single_tag_title(); ?></h1>
     </header>

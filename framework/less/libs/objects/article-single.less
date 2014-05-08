@@ -1,0 +1,13 @@
+.page-single {
+	.entry-content {
+		& when (isnumber(@article-border-width)){	
+			border-top: @article-border-width solid @article-border-color;	
+			& :first-child {
+				margin-top: 45px;
+			}
+		}
+	}
+	header {
+		margin-bottom: 45px;
+	}
+}

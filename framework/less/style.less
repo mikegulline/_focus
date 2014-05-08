@@ -19,6 +19,7 @@
 	@theme: light; /* light || dark */
 	@width: test; 
 	@side-border-width: 1px;
+	@article-border-width: 1px;
 	
 	
 // reciprocities/helpers
@@ -34,36 +35,34 @@
 	@import 'libs/menu.less'; 
 	@import 'libs/columns.less'; 
 	
+
+	@import 'libs/objects/article-blog.less';	// section.page-blog > article 
+	@import 'libs/objects/article-single.less';	// section.page-single > article
+	@import 'libs/objects/article-page.less';	// section.page-page > article
+	@import 'libs/objects/comments-list.less';	// section#comments-list
+	@import 'libs/objects/comments-form.less';	// #respond
+	@import 'libs/objects/nav-below.less';		// #nav-below
+	@import 'libs/objects/sidebar.less';		// #sidebar
+	
 	
 
-
-@media only screen and (max-width: 1199px) {         
-	              
-}/*/mediaquery*/      
-@media only screen and (width: 1024px) { 
-	
-}/*/mediaquery*/ 
-@media only screen and (max-width: 1023px) { 
-	
-}/*/mediaquery*/ 
-@media only screen and (max-width: 959px) {
-	
-}/*/mediaquery*/
-@media only screen and (width: 768px) {
-	
-}/*/mediaquery*/
-@media only screen and (max-width: 767px) {
-	
-}/*/mediaquery*/
-@media only screen and (max-width: 480px) {	
-
-}/*/mediaquery*/
-@media only screen and (max-width: 479px) {
-	
-}/*/mediaquery*/
-
-
-@media print {
-	 
-}/*/mediaquery*/
-
+/* check these! 
+// Components
+// @import "libs/components/code.less";
+// @import "libs/components/tables.less";
+// @import "libs/components/forms.less";
+// @import "libs/components/buttons.less";
+// @import "libs/components/component-animations.less";
+// @import "libs/components/dropdowns.less";
+// @import "libs/components/button-groups.less";
+// @import "libs/components/navs.less";
+// @import "libs/components/navbar.less";
+// @import "libs/components/breadcrumbs.less";
+// @import "libs/components/pagination.less";
+// @import "libs/components/pager.less";
+// @import "libs/components/alerts.less";
+// @import "libs/components/progress-bars.less";
+// @import "libs/components/list-group.less";
+// @import "libs/components/panels.less";
+// @import "libs/components/wells.less";
+*/	

@@ -1,0 +1,23 @@
+.page-blog {
+	> article {
+		margin-bottom: 45px;
+		position: relative;
+		/* if @article-border-width is set... add top border */
+		& when(isnumber(@article-border-width)) {
+			& + article {
+				border-top: @article-border-width solid @article-border-color;
+			}
+		}
+		.entry-title {
+			margin-bottom: 10px;
+			a:hover {
+				text-decoration: none !important;
+			}
+		}
+		.entry-footer, .entry-meta {
+			font-size: 80%;
+			text-transform: uppercase;
+			font-weight: 600;
+		}
+	}
+}

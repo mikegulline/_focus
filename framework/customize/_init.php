@@ -172,7 +172,7 @@ function lq_customize_register( $wp_customize ) {
 		'Ubuntu' => 'Ubuntu',
     ),
   ));
-   $wp_customize->add_section('site_width', array(
+  $wp_customize->add_section('site_width', array(
     'title'    => __('Site Width', 'flat'),
     'priority' => 90,
   ));
@@ -193,6 +193,26 @@ function lq_customize_register( $wp_customize ) {
 		'960' => '960px',
 		'768' => '768px',
 		'480' => '480px',
+    ),
+  ));
+  // sidebar location
+  $wp_customize->add_section('sidebar', array(
+    'title'    => __('Sidebar', 'flat'),
+    'priority' => 80,
+  ));
+  $wp_customize->add_setting('lq_theme_options[sidebar_loc]', array(
+    'default'        => 'right',
+    'capability'     => 'edit_theme_options',
+    'type'           => 'option',
+  ));
+  $wp_customize->add_control( 'sidebar_loc', array(
+    'settings' => 'lq_theme_options[sidebar_loc]',
+    'label' => __('Location', 'flat'),
+    'section' => 'sidebar',
+    'type'    => 'select',
+    'choices'    => array(	
+		'' => 'Right',
+		'sidebar-left' => 'Left'
     ),
   ));
   /*

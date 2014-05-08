@@ -1,0 +1,25 @@
+#nav-below {
+	margin: 45px 0;
+	.nav-previous {
+		float: left;
+		width: 50%;
+		&:empty + .nav-next {
+			width: 100%;
+		}
+	}
+	.nav-next {
+		float: left;
+		width: 50%;
+		text-align:right;
+	}
+	
+	& when(isnumber(@article-border-width)) {
+		padding-top: 45px;
+		border-top: @article-border-width solid @article-border-color;
+	}
+	&:after {
+		clear: both;
+		display:block;
+		content:"";
+	}
+}

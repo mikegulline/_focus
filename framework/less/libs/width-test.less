@@ -14,19 +14,21 @@
 	}
 	#sidebar {
 		padding: @p-sidebarR;
-		& when (@side-border-width>0){	
+		& when (isnumber(@side-border-width)){	
 			.xoxo {
 				padding-left: @siteP/2;
 				border-left: @side-border-width solid @side-border-color;	
 			}
 		}
 	}
-	.sidebar-left #sidebar {
+	&.sidebar-left #sidebar {
 		padding: @p-sidebarL;
-		& when (@side-border-width>0){
+		& when (isnumber(@side-border-width)){
 			.xoxo {
 				padding-right: @siteP/2;
+				padding-left: 0;
 				border-right: @side-border-width solid @side-border-color;	
+				border-left: none;	
 			}
 		}
 	}  
@@ -79,7 +81,7 @@
 		left: auto;
 	} 
 	#sidebar {
-		& when (@side-border-width>0){	
+		& when (isnumber(@side-border-width)){	
 			.xoxo {
 				border-top: @side-border-width solid @side-border-color;	
 			}
@@ -110,7 +112,7 @@
 		left: auto;
 	} 
 	#sidebar {
-		& when (@side-border-width>0){	
+		& when (isnumber(@side-border-width)){	
 			.xoxo {
 				border-top: @side-border-width solid @side-border-color;	
 			}

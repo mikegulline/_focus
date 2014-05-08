@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<section id="content" class="site-pad"role="main">
+<section id="content" class="site-pad page-page" role="main">
 	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <section class="entry-content">
