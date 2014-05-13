@@ -74,10 +74,10 @@
 /* END FORM TYPES */
 #respond {
 	& when (isnumber(@article-border-width)){	
-		border-top: @article-border-width solid @article-border-color;	
+		border-top: @article-border-width solid @Content-hr;	
 	}
 	#comments-list + & when (isnumber(@article-border-width)){	
-		border-top: @article-border-width solid @article-border-color;	
+		border-top: @article-border-width solid @Content-hr;	
 	}
 	/*mixin from above*/
 	.the-form(@form-type);
@@ -92,7 +92,7 @@
 #disqus_thread {
 	margin-bottom: @margin-large;
 	& when (isnumber(@article-border-width)){	
-		border-top: @article-border-width solid @article-border-color;	
+		border-top: @article-border-width solid @Content-hr;	
 		padding-top: @margin-large;
 	}
 }

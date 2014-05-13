@@ -1,49 +1,39 @@
 #makeColors{
-	.menu(@c) {
-		background: @c;
+	.menu() {
+		background: @MainMenu-bg;
 		.menu-fix &  {
-			background: fadeout(@c, 5%);
+			background: fadeout(@MainMenu-bg, 5%);
 		}
-		color: lighten(@c, 30%);
+		color: @MainMenu-f;
 		a {
-			color: lighten(@c, 30%);
+			color: @MainMenu-a;
 		}
 		a:hover, .current-menu-item > a, .current_page_item > a {
-			color: lighten(@c, 70%);
+			color: @MainMenu-ah;
+		}
+		.sub-menu {
+			a {
+				color: @MainMenuDrop-a;
+			}
+			a:hover, .current-menu-item > a, .current_page_item > a {
+				color: @MainMenuDrop-ah;
+			}
 		}
 		input[type="text"] {
 			border-color: transparent;
 		}
 		input[type="submit"] {
 			color: #fff;
-			background-color: lighten(@c, 20%);
+			background-color: lighten(@MainMenu-bg, 20%);
 			border-color: transparent;
 			&:hover {
-				background-color: darken(@c, 20%);
-			}
-		}
-	}
-	.menu2() {
-		background: @color2;
-		color: lighten(@color2, 50%);
-		a {
-			color: lighten(@color2, 50%);
-		}
-		a:hover {
-			color: lighten(@color2, 80%);
-		}
-		input[type="submit"],
-		input[type="button"],
-		.button {
-			color: #fff;
-			&:hover {
-				background-color: @color1;
+				background-color: darken(@MainMenu-bg, 20%);
 			}
 		}
 	}
 }
 body {
-	background: @cBody @imgBody; 
+	background: @Body-bg @Body-i; 
 }
 .menu-sub-top.site-pad {
 	background: fadeout(@MenuSubTop-bg, @MenuSubTop-bgf);
@@ -62,7 +52,7 @@ body {
 	
 }
 #menu {
-	#makeColors>.menu(@MainMenu-bg);
+	#makeColors>.menu();
 }
 body#tinymce  {
 	background: @Content-bg;
@@ -77,7 +67,7 @@ body#tinymce  {
 	}
 }
 .menu-sub-bottom.site-pad {
-	background: fadeout(@cMenuSubBottom, @cMenuSubBottomF);
+	background: fadeout(@MenuSubBottom-bg, @MenuSubBottom-bgf);
 	padding-bottom: 7px;
 	padding-top: 7px;
 }
