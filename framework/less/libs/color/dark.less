@@ -1,30 +1,41 @@
-@cMenuSubTop: #111;
-@cMenuSubTopF: 0%;
+
+@light-color: #111;
+
+
+/* top sub menu background */
+@MenuSubTop-bg: @light-color;
+@MenuSubTop-bgf: 0;
 
 /* bottom sub menu background */
-@cMenuSubBottom: #111;
-@cMenuSubBottomF: 70%;
+@cMenuSubBottom: @light-color;
+@cMenuSubBottomF: 0;
 
 /* body background */
-@cBody: #333;
+@cBody: lighten(@light-color, 5%);
 @imgBody: url(images/cartographer.png) fixed top center;
 
 /* content background */
-@cContent: #000;
-@cContentF: 70%;
+@Content-bg: @light-color;
+@Content-bgf: 35%;
 
 /* text and headers */
-@cHeaders: #bbb;
-@cText: #777;
+@Content-h: lighten(@light-color, 80%);
+@Content-f: lighten(@light-color, 40%);
 
 /* Main Menu A and A:hover */
+@MainMenu-bg: @color1;
 @mma: fadeOut(#fff, 50);
 @mmah: #fff;
 
 /* Main Menu Sub Menu background,  A and A:hover */
-@mmsmbg: #000;
+@mmsmbg: @light-color;
 @mmsma: @color2;
 @mmsmah:@color1 ;
 
 /* side bar border color */
-@side-border-color: #333;
+@side-border-color: lighten(@light-color, 10%);
+@article-border-color: lighten(@light-color, 10%);
+
+@input-bg: #333;
+@input-b: #000;
+@input-c: #ccc;

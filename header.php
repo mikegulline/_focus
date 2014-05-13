@@ -29,6 +29,8 @@
                 <div id="search">
                 <?php get_search_form(); ?>
                 </div>
+                <div class="main-menu">
+                <a href="#" class="toggle" data-target="menu"><i  class="fa fa-bars"></i></a>
                 <?php
 					echo wp_nav_menu( 
 						array( 
@@ -39,6 +41,7 @@
 						) 
 					); 
 				?>
+                </div>
             </nav>
         </header>
         <div id="container">

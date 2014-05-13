@@ -108,7 +108,7 @@ function lq_customize_register( $wp_customize ) {
     'section' => 'colors',
     'settings' => 'lq_theme_options[sidebar_background_color]',
   )));
-  */
+  
   $wp_customize->add_setting('lq_theme_options[background_size]', array(
     'default'        => '',
     'capability'     => 'edit_theme_options',
@@ -126,6 +126,7 @@ function lq_customize_register( $wp_customize ) {
       'initial' => 'Initial',
     ),
   ));
+  */
   $wp_customize->add_section('typography', array(
     'title'    => __('Typography', 'flat'),
     'priority' => 50,
@@ -141,21 +142,17 @@ function lq_customize_register( $wp_customize ) {
     'section' => 'typography',
     'type'    => 'select',
     'choices'    => array(
-		'Alegreya Sans' => 'Alegreya Sans',
 		'Arimo' => 'Arimo',
-		'Cuprum' => 'Cuprum',
 		'Lato' => 'Lato',
 		'Muli' => 'Muli',
 		'Open Sans' => 'Open Sans',
 		'Roboto' => 'Roboto',
-		'Roboto Condensed' => 'Roboto Condensed',
-		'Source Sans Pro' => 'Source Sans Pro',
 		'Titillium Web' => 'Titillium Web',
 		'Ubuntu' => 'Ubuntu',
     ),
   ));
   $wp_customize->add_setting('lq_theme_options[heading_font_family]', array(
-    'default'        => 'Roboto Slab',
+    'default'        => 'Titillium Web Heavy',
     'capability'     => 'edit_theme_options',
     'type'           => 'option',
   ));
@@ -164,20 +161,23 @@ function lq_customize_register( $wp_customize ) {
     'label' => __('Heading Font Family', 'flat'),
     'section' => 'typography',
     'type'    => 'select',
-    'choices'    => array(	
-		'Roboto' => 'Roboto',
-		'Roboto Condensed' => 'Roboto Condensed',
-		'Roboto Slab' => 'Roboto Slab',
-		'Titillium Web' => 'Titillium Web',
-		'Ubuntu' => 'Ubuntu',
+    'choices'    => array(
+		'Roboto Light' => 'Roboto: Light',
+		'Roboto Heavy' => 'Roboto: Heavy',
+		'Roboto Condensed Light' => 'Roboto Condensed: Light',
+		'Roboto Condensed Heavy' => 'Roboto Condensed: Heavy',
+		'Roboto Slab Light' => 'Roboto Slab: Light',
+		'Roboto Slab Heavy' => 'Roboto Slab: Heavy',	
+		'Titillium Web Light' => 'Titillium Web: Light',
+		'Titillium Web Heavy' => 'Titillium Web: Heavy',
     ),
   ));
   $wp_customize->add_section('site_width', array(
     'title'    => __('Site Width', 'flat'),
-    'priority' => 90,
+    'priority' => 1,
   ));
   $wp_customize->add_setting('lq_theme_options[site_width_max]', array(
-    'default'        => 'w1400',
+    'default'        => 'w1200',
     'capability'     => 'edit_theme_options',
     'type'           => 'option',
   ));
@@ -336,68 +336,73 @@ function lq_favicon() {
 add_action( 'wp_head', 'lq_favicon' );
 
 /**
- * Custom CSS
- */
-function lq_custom_css() {
-  $custom_style = '<style type="text/css">';
-  $sidebar_background_color = lq_get_theme_option('sidebar_background_color');
-  if( !empty($sidebar_background_color) ) {
-    $custom_style.= '#page:before, .sidebar-offcanvas, #secondary { background-color: '.$sidebar_background_color.'; }';
-    $custom_style.= '@media (max-width: 1199px) { #page > .container { background-color: '.$sidebar_background_color.'; } }';
-  }
-  $background_size = lq_get_theme_option('background_size');
-  if( !empty($background_size) ) {
-    $custom_style.= 'body { background-size: '.$background_size.'; }';
-  }
-  $custom_style.= '</style>';
-  echo $custom_style;
-}
-add_action( 'wp_head', 'lq_custom_css' );
-
-/**
  * Custom Font
  */
 function lq_custom_font() {
 	$weight_headers = array(
-		'Roboto Slab' => array('
+		'Roboto Slab Light' => array('
 			h1{font-weight: 100}
-			h2{font-weight: 300}
-			h3{font-weight: 400}
-			h4,h5,h6{font-weight: 400}',
+			h2{font-weight: 200}
+			h3{font-weight: 300}
+			h4,h5,h6{font-weight: 300}',
 			'Roboto+Slab:400,100,300',
 			"font-family: 'Roboto Slab', serif;"
 		),
-		'Roboto' => array('
-			h1{font-weight: 300}
+		'Roboto Slab Heavy' => array('
+			h1{font-weight: 400}
+			h2{font-weight: 400}
+			h3{font-weight: 700}
+			h4,h5,h6{font-weight: 700}',
+			'Roboto+Slab:400,100,300',
+			"font-family: 'Roboto Slab', serif;"
+		),
+		'Roboto Light' => array('
+			h1{font-weight: 100}
 			h2{font-weight: 300}
 			h3{font-weight: 300}
-			h4,h5,h6{font-weight: 500}',
+			h4,h5,h6{font-weight: 300}',
 			'Roboto:300,500,500italic,300italic',
 			"font-family: 'Roboto', sans-serif;"
 		),
-		'Titillium Web' => array('
+		'Roboto Heavy' => array('
+			h1{font-weight: 700}
+			h2{font-weight: 700}
+			h3{font-weight: 700}
+			h4,h5,h6{font-weight: 900}',
+			'Roboto:300,500,500italic,300italic',
+			"font-family: 'Roboto', sans-serif;"
+		),
+		'Titillium Web Light' => array('
 			h1{font-weight: 200}
 			h2{font-weight: 300}
 			h3{font-weight: 400}
+			h4,h5,h6{font-weight: 400}',
+			'Titillium+Web:200,300,400,400italic,600,600italic,200italic,300italic',
+			"font-family: 'Titillium Web', sans-serif;"
+		),
+		'Titillium Web Heavy' => array('
+			h1{font-weight: 400}
+			h2{font-weight: 400}
+			h3{font-weight: 600}
 			h4,h5,h6{font-weight: 600}',
 			'Titillium+Web:200,300,400,400italic,600,600italic,200italic,300italic',
 			"font-family: 'Titillium Web', sans-serif;"
 		),
-		'Roboto Condensed' => array('
+		'Roboto Condensed Light' => array('
 			h1{font-weight: 300}
 			h2{font-weight: 400}
+			h3{font-weight: 400}
+			h4,h5,h6{font-weight: 400}',
+			'Roboto+Condensed:300,400,400italic,700,700italic,300italic',
+			"font-family: 'Roboto Condensed', sans-serif;"
+		),
+		'Roboto Condensed Heavy' => array('
+			h1{font-weight: 400}
+			h2{font-weight: 700}
 			h3{font-weight: 700}
 			h4,h5,h6{font-weight: 700}',
 			'Roboto+Condensed:300,400,400italic,700,700italic,300italic',
 			"font-family: 'Roboto Condensed', sans-serif;"
-		),
-		'Ubuntu' => array('
-			h1{font-weight: 300}
-			h2{font-weight: 300}
-			h3{font-weight: 300}
-			h4,h5,h6{font-weight: 500}',
-			'Ubuntu:300,500,300italic,500italic',
-			"font-family: 'Ubuntu', sans-serif;"
 		),
 	);
 	$weight_text = array(

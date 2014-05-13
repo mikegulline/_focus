@@ -1,5 +1,5 @@
 #nav-below {
-	margin: 45px 0;
+	margin: @margin-large 0;
 	.nav-previous {
 		float: left;
 		width: 50%;
@@ -14,7 +14,7 @@
 	}
 	
 	& when(isnumber(@article-border-width)) {
-		padding-top: 45px;
+		padding-top: @margin-large;
 		border-top: @article-border-width solid @article-border-color;
 	}
 	&:after {

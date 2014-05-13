@@ -1,32 +1,96 @@
-/* top sub menu background */
-@cMenuSubTop: #fff;
-@cMenuSubTopF: 0;
+/*KEY
+	@x-bg:	Background;
+	@x-bgf:	Background Opacity;	
+	@x-h: 	Font Color;
+	@x-f: 	Font Color;
+	@x-a: 	A Color;
+	@x-ah: 	A Hover;	
+*/
+/*GLOBAL*/
+	@light-color: #fff;
+
+/*TOP SUB MENU*/
+	@MenuSubTop-bg: 		@light-color;
+	@MenuSubTop-bgf: 		0;	
+	@MenuSubTop-f: 			0;
+	@MenuSubTop-a: 			0;
+	@MenuSubTop-ah: 			0;	
+
+/*BRANDING*/
+	@Branding-bg: 			'';
+	@Branding-bgf: 			0;	
+	@Branding-f: 			#666;
+	@Branding-a: 			#444;
+	@Branding-ah: 			@color2;	
+
+/*MAIN MENU*/
+	@MainMenu-bg: 			@color1;
+	@MainMenu-bgf: 			0;	
+	@MainMenu-f: 			fadeOut(@light-color, 50);
+	@MainMenu-a: 			fadeOut(@light-color, 50);
+	@MainMenu-ah: 			@light-color;
+	
+/*MAIN MENU MOBILE*/
+	@MainMenuMobile-bg: 	'';
+	@MainMenuMobile-bgf:	'';	
+	@MainMenuMobile-f: 		fadeOut(@light-color, 50);
+	@MainMenuMobile-a: 		fadeOut(@light-color, 50);
+	@MainMenuMobile-ah: 	@light-color;	
+	
+/*CONTENT*/
+	@Content-bg: 			@light-color;
+	@Content-bgf: 			30%;	
+	@Content-h: 			darken(@light-color, 80%);
+	@Content-f: 			darken(@light-color, 55%);
+	@Content-a: 			#333;
+	@Content-ah: 			@color2;
+
+/*SIDEBAR*/
+	@Sidebar-bg: 			@light-color;
+	@Sidebar-bgf: 			0;	
+	@Sidebar-f: 			0;
+	@Sidebar-a: 			0;
+	@Sidebar-ah: 			0;
+	
+/*FOOTER*/
+	@Footer-bg: 			@light-color;
+	@Footer-bgf: 			0;	
+	@Footer-f: 				0;
+	@Footer-a: 				0;
+	@Footer-ah: 				0;
+
+/*BOTTOM SUB MENU*/
+	@MenuSubBottom-bg: 		@light-color;
+	@MenuSubBottom-bgf: 	0;	
+	@MenuSubBottom-f: 		0;
+	@MenuSubBottom-a: 		0;
+	@MenuSubBottom-ah: 		0;
+
+
 
 /* bottom sub menu background */
-@cMenuSubBottom: #fff;
+@cMenuSubBottom: @light-color;
 @cMenuSubBottomF: 0;
 
 /* body background */
-@cBody: #eee;
+@cBody: darken(@light-color, 5%);
 @imgBody: url(images/cutcube.png) fixed top center;
 
-/* content background */
-@cContent: #fff;
-@cContentF: 25%;
-
-/* text and headers */
-@cHeaders: #222;
-@cText: #555;
 
 /* Main Menu A and A:hover */
-@mma: fadeOut(#fff, 50);
-@mmah: #fff;
+@MainMenu-bg: @color1;
+@mma: ;
+@mmah: ;
 
 /* Main Menu Sub Menu background,  A and A:hover */
-@mmsmbg: #fff;
+@mmsmbg: @light-color;
 @mmsma: @color2;
 @mmsmah:@color1 ;
 
 /* side bar border color */
-@side-border-color: #e0e0e0;
-@article-border-color: #e0e0e0;
+@side-border-color: darken(@light-color, 10%);
+@article-border-color: darken(@light-color, 10%);
+
+@input-bg: #fff;
+@input-b: #ddd;
+@input-c: #333;

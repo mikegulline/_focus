@@ -23,7 +23,7 @@ input[type="button"],
 	-ms-box-sizing: border-box;
 	-webkit-text-size-adjust: none;
 	-webkit-font-smoothing: subpixel-antialiased;
-    border: 1px solid rgba(0, 0, 0, .1);
+    border: 1px solid @input-b;
     #hl>.round-all-corners(4px);
     #hl>.box-shadow(none);
     display: inline-block;
@@ -35,8 +35,15 @@ input[type="button"],
 	white-space: nowrap;
 	font-family: inherit;
 	text-decoration: none;
-	max-width:100%
+	max-width:100%;
+	background: @input-bg;
+	color: @input-c;
 	
+}
+input[type="submit"],
+input[type="button"],
+.button {
+	border-color: transparent;
 }
 input[type="submit"]::-moz-focus-inner, 
 input[type="button"]::-moz-focus-inner {
@@ -54,24 +61,10 @@ input[type="button"],
 	}
 }
 input:focus, textarea:focus {
-	border: 1px solid #1F8DD6;
-	#hl>.box-shadow(inset 0 0 5px 1px lighten(@color1, 40));
+	border: 1px solid @color1;
+	#hl>.box-shadow(none);
 }
-#commentform {
-	p {position: relative;
-		padding-left: 120px;
-	}
-	label {
-		width: 110px;
-		display:block;
-		text-align:right;
-		position:absolute;
-		left: 0;
-	}
-	.form-allowed-tags {
-		font-size: 80%;	
-	}
-}
+
 @media only screen and (max-width: 1199px) {         
 	              
 }/*/mediaquery*/      

@@ -1,6 +1,32 @@
 window.onload = function(){
 	lq_scroll_to_anchor.init()
+	
 }
+jQuery(function() {
+	jQuery(document).on("click",function (event) {
+		var testEvent = jQuery(event.target).closest('.toggle')
+		// clicking on a toggle
+		if(testEvent.length){
+			event.preventDefault()
+			var toggle = jQuery('.'+testEvent.attr('data-target'))
+			if(toggle.hasClass('active')){
+				toggle.removeClass('active')
+				testEvent.removeClass('on')
+			}else{
+				jQuery('.active').removeClass('active')
+				jQuery('.on').removeClass('on')
+				toggle.addClass('active')
+				testEvent.addClass('on')
+			}
+		}else{
+			var testEvent = jQuery(event.target).closest('.active')
+			if(!testEvent.length){
+				jQuery('.active').removeClass('active')
+				jQuery('.on').removeClass('on')
+			}
+		}
+	});
+});
 var lq_scroll_to_anchor = {
 	init: function(){
 		if(h = window.location.hash) {
@@ -36,15 +62,15 @@ var lq_width_triggers = {
 		var bod = jQuery('body')
 		win.bind('load '+ uf, function(event){
 			var w = win.width()
-			var classes = 'w1400 w1200 w1024 w960 w768 w480 w320'
-			if(w>=bod.attr('data-max-width'))  bod.removeClass(classes).addClass('w'+bod.attr('data-max-width'))
-			else if(w>=1400) bod.removeClass(classes).addClass('w1400')
-			else if(w>=1200) bod.removeClass(classes).addClass('w1200')
-			else if(w>=1024) bod.removeClass(classes).addClass('w1024')
-			else if(w>=960) bod.removeClass(classes).addClass('w960')
-			else if(w>=768) bod.removeClass(classes).addClass('w768')
-			else if(w>=480) bod.removeClass(classes).addClass('w480')
-			else if(w>=320) bod.removeClass(classes).addClass('w320')
+			var classes = 'w1400 w1200 w1024 w960 w768 w480 w320 mobile desktop'
+			if(w>=bod.attr('data-max-width'))  bod.removeClass(classes).addClass('w'+bod.attr('data-max-width')+' desktop')
+			else if(w>=1400) bod.removeClass(classes).addClass('w1400 desktop')
+			else if(w>=1200) bod.removeClass(classes).addClass('w1200 desktop')
+			else if(w>=1024) bod.removeClass(classes).addClass('w1024 desktop')
+			else if(w>=960) bod.removeClass(classes).addClass('w960 desktop')
+			else if(w>=768) bod.removeClass(classes).addClass('w768 desktop')
+			else if(w>=480) bod.removeClass(classes).addClass('w480 mobile')
+			else if(w>=320) bod.removeClass(classes).addClass('w320 mobile')
 		});
 	},
 };

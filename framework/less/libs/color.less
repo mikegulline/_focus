@@ -46,29 +46,29 @@ body {
 	background: @cBody @imgBody; 
 }
 .menu-sub-top.site-pad {
-	background: fadeout(@cMenuSubTop, @cMenuSubTopF);
+	background: fadeout(@MenuSubTop-bg, @MenuSubTop-bgf);
 	padding-bottom: 7px;
 	padding-top: 7px;
 }
 #header {
 	#branding {
 		a {
-			color: @color2;
+			color: @Branding-a;
 		}
 		a:hover {
-			color: @color1;
+			color: @Branding-ah;
 		}
 	}
 	
 }
 #menu {
-	#makeColors>.menu(@color1);
+	#makeColors>.menu(@MainMenu-bg);
 }
 body#tinymce  {
-	background: @cContent;
+	background: @Content-bg;
 }
 #container {
-	background: fadeout(@cContent, @cContentF);
+	background: fadeout(@Content-bg, @Content-bgf);
 	#content {
 		
 	}
@@ -87,14 +87,14 @@ body#tinymce  {
 
 
 h1, h2, h3, h4, h5, h6 {
-	color: @cHeaders;
+	color: @Content-h;
 }
 #wrapper, body#tinymce {
-	color: @cText;
+	color: @Content-f;
 }
-blockquote {
+.entry-content blockquote {
 	border-color: @color1;
-	color: lighten(@cText, 25%);
+	font-size:125%;
 	* {
 		color: inherit;	
 	}

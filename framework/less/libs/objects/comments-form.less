@@ -1,5 +1,99 @@
+/* FORM TYP "indent" */
+	.the-form(@x) when (@x = indent){
+		p {position: relative;
+			padding-left: 120px;
+		}
+		.comment-form-author, .comment-form-email, .comment-form-url, .comment-form-comment {
+			margin: 0 0 5px 0;
+		}
+		
+		textarea {
+			max-width: 340px;
+			height: 85px;
+		}
+		input {
+			width: 200px;
+			&[type="submit"] {
+				width: auto
+			}
+		}
+		label {
+			width: 110px;
+			display:block;
+			text-align:right;
+			position:absolute;
+			left: 0;
+		}
+	}
+/* FORM TYP "tags-right" */
+	.the-form(@x) when (@x = tags-right){
+		p {
+			position: relative;
+		}
+		.comment-form-author, .comment-form-email, .comment-form-url, .comment-form-comment {
+			margin: 0 0 5px 0;
+		}
+		input {
+			width: 200px;
+			&[type="submit"] {
+				width: auto
+			}
+		}
+		textarea {
+			width: 325px;
+			height: 85px;
+		}
+		label {
+			background: none repeat scroll 0 0 @color1;
+			border: 1px solid rgba(0, 0, 0, 0);
+			color: #FFFFFF;
+			display: block;
+			font-size: 11px;
+			height: 20px;
+			line-height: 20px;
+			font-weight: bold;
+			left: 215px;
+			margin-top: 9px;
+			padding: 0 10px;
+			position: absolute;
+			
+			&:before {
+				position: absolute;
+				top: 0;
+				left: -21px;
+				border: 10px solid  transparent;	
+				border-right: 10px solid  @color1;	
+				display: block;
+				content:""
+			}
+		}
+		.comment-form-comment label {
+			left: 340px;
+		}	
+	}
+/* END FORM TYPES */
 #respond {
+	& when (isnumber(@article-border-width)){	
+		border-top: @article-border-width solid @article-border-color;	
+	}
 	#comments-list + & when (isnumber(@article-border-width)){	
 		border-top: @article-border-width solid @article-border-color;	
 	}
+	/*mixin from above*/
+	.the-form(@form-type);
+	
 }
+.form-allowed-tags, .form-allowed-tags * {
+	font-size: 11px;	
+	max-width:440px;
+}
+
+/* for the disqus.com comment plugin*/
+#disqus_thread {
+	margin-bottom: @margin-large;
+	& when (isnumber(@article-border-width)){	
+		border-top: @article-border-width solid @article-border-color;	
+		padding-top: @margin-large;
+	}
+}
+

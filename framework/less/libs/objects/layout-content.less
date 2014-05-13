@@ -1,0 +1,25 @@
+#container {
+	position:relative;
+	&:after {
+		display: block;
+		clear: both;
+		content: "";
+	}
+}
+#content {
+	padding-top: @content-t-pad;
+	padding-bottom: @content-b-pad;
+	float: left;
+	.sidebar-left & {
+		float: right;
+	}
+	.w480 &, .w320 & { float: none;}
+	& header + article {
+		& when (isnumber(@article-border-width)){	
+			border-top: @article-border-width solid @article-border-color;
+		}
+	}
+}
+.entry-content  {
+	margin-bottom: @margin-large;
+}
