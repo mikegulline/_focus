@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_uri(); ?>" />
     <?php wp_head(); ?>
 </head>
-<body <?php body_class('w'.lq_get_theme_option('site_width_max').' '.lq_get_theme_option('sidebar_loc')); ?> data-max-width="<?php echo  lq_get_theme_option('site_width_max') ?>">
+<body <?php body_class('w'.lq_get_theme_option('site_width_max').' desktop '.lq_get_theme_option('sidebar_loc')); ?> data-max-width="<?php echo  lq_get_theme_option('site_width_max') ?>">
     <div id="wrapper" class="hfeed wrapper">
     	<div class="menu-fix wrapper"></div>
         <header id="header" role="banner" class="wrapper">

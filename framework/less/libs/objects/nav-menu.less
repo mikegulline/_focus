@@ -1,4 +1,4 @@
-.active {display: block !important;}
+
 #menu label {display: none;}
 #menu #search #s  {
 	width: 200px;
@@ -9,184 +9,189 @@
 
 
 /*STICK MENU*/
-.menu-fix {
-	position: fixed;
-	z-index: 9999;
-	top: 0;
-	> *{
-		display: none;
-		&.show {
-			display: block
-		}
-	}
-	.w480 &, .w320 & {
-		display: none;
-	}
-}
-/*MAIN MENU MOBILE*/
-.mobile {
-	#menu {
-		&:after {
-			display: block;
-			content: "";
-			clear: both;
-		}
-		
-	}
-	.main-menu {
-		float: right;
-		position:relative;
-		& .toggle {
-			color: @Content-bg;
-			font-size:183%;
-			background: @color1;
-			padding: 4px 7px;
-			#hl>.round-all-corners(5px);
-			cursor: pointer;
-		}
-		> ul {
+	.menu-fix {
+		position: fixed;
+		z-index: 9999;
+		top: 0;
+		> * {
 			display: none;
-			position: absolute;
-			width: 200px;
-			left: -225px;
-			top: -100%;
-			padding: 10px;
-			background:  @Content-bg;
-			#hl>.round-all-corners(5px);
-			@arguments:0 5px 5px 0 rgba(0,0,0,.2) ;
-			-webkit-box-shadow: @arguments;
-      		-moz-box-shadow: @arguments;
-            box-shadow: @arguments;
-			li {
-				cursor:pointer;
-				a {
-					display: block;
-					color:  @Content-f  !important;
-					&:hover {
-						color:  @color1 !important;
-					}
+			&.show {
+				display: block
+			}
+		}
+		.w480 &, .w320 & {
+			display: none;
+		}
+	}
+	
+/*MAIN MENU MOBILE*/
+	.mobile {
+		#menu {
+			&:after {
+				display: block;
+				content: "";
+				clear: both;
+			}
+			#search {
+				float: left;
+			}
+		}
+		&.w320 #menu #search #s {
+			width: 170px;
+		}
+		.main-menu {
+			float: right;
+			position:relative;
+			
+			/*TOGGLE BUTTON*/
+			& .toggle {
+				color: #fff;
+				font-size:183%;
+				padding: 3px 11px;
+				#hl>.round-all-corners(5px);
+				cursor: pointer;
+			}
+			> ul {
+				#hl>.transition(all, .35s, ease);
+				-webkit-transition-property: top, opacity;
+				   -moz-transition-property: top, opacity;
+					 -o-transition-property: top, opacity;
+						transition-property: top, opacity;
+				#hl>.opacity(0.0);
+				height:0; 
+				overflow:hidden;
+				position: absolute;
+				width: 200px;
+				left: -225px;
+				top: 100%;
+				padding: 0px;
+				#hl>.round-all-corners(5px);
+				&.active {
+					z-index: 10000;
+					top: -100%; 
+					#hl>.opacity(1); 
+					overflow: visible; 
+					height:  auto; 
+					padding: 10px;
+					@arguments:0 5px 15px 3px rgba(0,0,0,.2) ;
+					-webkit-box-shadow: 	@arguments;
+						-moz-box-shadow: 	@arguments;
+							box-shadow: 	@arguments;
 				}
-				ul { /* sub menu  */
-					margin-left: 20px;
-					li  { /* sub menu li */
-						a {  /* sub menu a */
-							padding: 5px 0px; 
-							disloay: block;
-							width: 100%;
+				li {
+					cursor:pointer;
+					a {
+						display: block;
+					}
+					ul {
+						margin-left: 20px;
+						li  {
+							a {
+								padding: 5px 0px; 
+								disloay: block;
+								width: 100%;
+							}
 						}
 					}
 				}
+				> li {
+					> a {
+						font-size: 135%;
+					}
+				}
 			}
+		}
+	}
+	
+/*MAIN MENU DESKTOP*/
+	.desktop {
+		#menu {
+			#search {
+				float: right;
+			}
+		}
+		.main-menu .toggle {
+			display: none;
+		}
+		.main-menu > ul {
+			padding: 0;
+			margin: 0 0 0 -20px;
+			/*ALL MENU ITEMS*/
+			li {
+				margin: 0;
+				padding: 0;
+				position:relative;	
+				text-align:left;
+				cursor:pointer;
+				a {
+					display: block;
+					color: @MainMenuDrop-a;
+					&:hover {
+						color: @MainMenuDrop-ah;
+					}
+				}
+				ul {
+					-moz-box-shadow:    0 4px 15px -3px rgba(0, 0, 0, 0.3);
+					-webkit-box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.3);
+					box-shadow:         0 4px 15px -3px rgba(0, 0, 0, 0.3);
+					z-index: 99;
+					#hl>.transition(all, .35s, ease);
+					#hl>.opacity(0.0);
+					height:0; 
+					overflow:hidden;
+					position:absolute; 
+					top: 150px; 
+					left: 2px; 
+					width: 200px;
+					#hl>.clearfix();
+					li  {
+						background: @MainMenuDrop-bg;
+						a {
+							padding: 5px 10px; 
+							disloay: block;
+							width: 100%;
+						}
+						ul { 
+							left: 95%; 
+						}
+						&:hover > ul {
+							top: 10px;
+						}
+					}
+				}
+				&:hover > ul {
+					z-index: 10000;
+					top: 100%; 
+					#hl>.opacity(1); 
+					overflow: visible; 
+					height:  auto; 
+				}
+			}
+			/*TOP LEVEL MENU ITEMS*/
 			> li {
+				display: inline-block;
 				> a {
+					padding: 4px 20px 5px 20px;
 					font-size: 125%;
 				}
 			}
 		}
 	}
-	#menu {
-		#search {
-			float: left;
-		}
-	}
-	&.w320 #menu #search #s {
-		width: 170px;
-	}
-}
-/*MAIN MENU DESKTOP*/
-.desktop {
-	#menu #search {
-		float: right;
-	}
-	.main-menu .toggle {
-		display: none;
-	}
-	.main-menu > ul {
-		padding: 0;
-		margin: 0 0 0 -20px;
-		li {
-			margin: 0;
-			padding: 0;
-			position:relative;	
-			text-align:left;
-			cursor:pointer;
-			a {
-				display: block;
-				color: @MainMenu-a;
-				&:hover {
-					color: @MainMenu-ah;
-				}
-			}
-			ul { /* sub menu  */
-				-moz-box-shadow:    0 4px 15px -3px rgba(0, 0, 0, 0.3);
-				-webkit-box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.3);
-				box-shadow:         0 4px 15px -3px rgba(0, 0, 0, 0.3);
-				z-index: 99;
-				#hl>.transition(all, .35s, ease);
-				#hl>.opacity(0.0);
-				height:0; 
-				overflow:hidden;
-				position:absolute; 
-				top: 150px; 
-				left: 2px; 
-				width: 200px;
-				#hl>.clearfix();
-				li  { /* sub menu li */
-					background: @MainMenuDrop-bg;
-					a {  /* sub menu a */
-						padding: 5px 10px; 
-						disloay: block;
-						width: 100%;
-						color: @MainMenuDrop-a;
-						&:hover {
-							color: @MainMenuDrop-ah;
-						}
-					}
-					ul { left: 95%; } /* sub sub menu right  */
-					&:hover > ul {top: 10px;} /* sub sub menu:hover  */
-				}
-			}
-			&:hover > ul {  /* sub menu:hover  */
-				z-index: 10000;
-				top: 100%; 
-				#hl>.opacity(1); 
-				overflow: visible; 
-				height:  auto; 
-			}
-		}
-	  	> li {
-			display: inline-block;
-			> a {
-				padding: 4px 20px 5px 20px;
-				font-size: 125%;
-			}
-		}
-	}
-}
+	
 /*SUBMENUS TOP AND BOTTOM*/
-.menu-sub {
-	@pad: 5px;
-	> ul {
-		margin: 0 0 0 -@pad;
-		> li {
-			display: inline-block;
-			a {
-				display: block;
-			}
-			> a {
-				padding: 0px @pad 0px @pad;
-				font-size: 90%;
+	.menu-sub {
+		@pad: 5px;
+		> ul {
+			margin: 0 0 0 -@pad;
+			> li {
+				display: inline-block;
+				a {
+					display: block;
+				}
+				> a {
+					padding: 0px @pad 0px @pad;
+					font-size: 90%;
+				}
 			}
 		}
 	}
-}
-
-@media only screen and (max-width: 1023px) {
-	
-}
-@media only screen and (max-width: 767px) {
-	
-}
-@media only screen and (max-width: 479px) {
-	
-}/*/mediaquery*/

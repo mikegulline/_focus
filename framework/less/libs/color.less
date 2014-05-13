@@ -1,121 +1,138 @@
-#makeColors{
-	.menu() {
-		background: @MainMenu-bg;
-		.menu-fix &  {
-			background: fadeout(@MainMenu-bg, 5%);
+
+	body {
+		background: @Body-bg @Body-i; 
+		color: @Content-f;
+		h1, h2, h3, h4, h5, h6 {
+			color: @Content-h;
 		}
-		color: @MainMenu-f;
-		a {
-			color: @MainMenu-a;
+		a 	{
+			color: @Content-a;
 		}
-		a:hover, .current-menu-item > a, .current_page_item > a {
-			color: @MainMenu-ah;
-		}
-		.sub-menu {
-			a {
-				color: @MainMenuDrop-a;
-			}
-			a:hover, .current-menu-item > a, .current_page_item > a {
-				color: @MainMenuDrop-ah;
-			}
-		}
-		input[type="text"] {
-			border-color: transparent;
-		}
-		input[type="submit"] {
-			color: #fff;
-			background-color: lighten(@MainMenu-bg, 20%);
-			border-color: transparent;
-			&:hover {
-				background-color: darken(@MainMenu-bg, 20%);
-			}
+		a:hover {
+			color: @Content-ah;
 		}
 	}
-}
-body {
-	background: @Body-bg @Body-i; 
-}
-.menu-sub-top.site-pad {
-	background: fadeout(@MenuSubTop-bg, @MenuSubTop-bgf);
-	padding-bottom: 7px;
-	padding-top: 7px;
-}
-#header {
+	.menu-sub-top {
+		background: fadeout(@MenuSubTop-bg, @MenuSubTop-bgf);
+		color: @MenuSubTop-f;
+		a 		{color: @MenuSubTop-a;}
+		a:hover {color: @MenuSubTop-ah;}
+	}
 	#branding {
-		a {
-			color: @Branding-a;
+		color: @Branding-f;
+		a 		{color: @Branding-a;}
+		a:hover {color: @Branding-ah;}
+	}
+	#menu {
+		background: @MainMenu-bg;
+		.menu-fix & {
+			background: fadeOut(@MainMenu-bg, 5);
 		}
-		a:hover {
-			color: @Branding-ah;
+	}
+	#container {
+		background: fadeout(@Content-bg, @Content-bgf);
+		#content {
+			.aside {
+				background: @color1;
+				color: #fff;
+				a {
+					color: #80efff;
+				}
+				a:hover {
+					color:#FC0
+				}
+			}
+			.code {
+				border-color: #EEEEEE;
+				background: #fafafa;
+			} 
+			blockquote {
+				border-color: @color1;
+				font-size:125%;
+				* {
+					color: inherit;	
+				}
+			}
+		}
+		#sidebar {
+			color: @Sidebar-f;
+			a 		{color: @Sidebar-a;}
+			a:hover {color: @Sidebar-ah;}
+		}
+	}
+	.menu-sub-bottom {
+		background: fadeout(@MenuSubBottom-bg, @MenuSubBottom-bgf);
+		color: @MenuSubBottom-f;
+		a 		{color: @MenuSubBottom-a;}
+		a:hover {color: @MenuSubBottom-ah;}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	.mobile {
+		.main-menu {
+			& .toggle {
+				color: #fff;
+				background: @color1;
+				&.on, &:hover {
+					background: darken(@MainMenu-bg, 10);
+				}
+			}
+			> ul {
+				background:  @MainMenuMobile-bg;
+				li {
+					a {
+						color:  @MainMenuMobile-a;
+						&:hover {
+							color:  @MainMenuMobile-ah;
+						}
+					}
+				}
+			}
+		}
+	}
+	.desktop {
+		.main-menu > ul {
+			li {
+				a {
+					color: @MainMenuDrop-a;
+					&:hover {
+						color: @MainMenuDrop-ah;
+					}
+				}
+				ul {
+					li  {
+						background: @MainMenuDrop-bg;
+					}
+				}
+			}
+			> li {
+				> a {
+					color: @MainMenu-a;
+					&:hover {
+						color: @MainMenu-ah;
+					}
+				}
+			}
 		}
 	}
 	
-}
-#menu {
-	#makeColors>.menu();
-}
-body#tinymce  {
-	background: @Content-bg;
-}
-#container {
-	background: fadeout(@Content-bg, @Content-bgf);
-	#content {
-		
-	}
-	#sidebar {
-
-	}
-}
-.menu-sub-bottom.site-pad {
-	background: fadeout(@MenuSubBottom-bg, @MenuSubBottom-bgf);
-	padding-bottom: 7px;
-	padding-top: 7px;
-}
-#footer {
 	
-}
+	
 
 
-h1, h2, h3, h4, h5, h6 {
-	color: @Content-h;
-}
-#wrapper, body#tinymce {
-	color: @Content-f;
-}
-.entry-content blockquote {
-	border-color: @color1;
-	font-size:125%;
-	* {
-		color: inherit;	
-	}
-}
-a {
-	color: @color1;
-}
-a:hover {
-	color: @color2;
-}
-#content {
-	.aside {
-		background: @color1;
-		color: #fff;
-		a {
-			color: #80efff;
-		}
-		a:hover {
-			color:#FC0
-		}
-	}
-}
-#sidebar {
-	a {
-		color: @color2;
-	}
-	a:hover {
-		color: @color1;
-	}
-}
-.code {
-	border-color: #EEEEEE;
-	background: #fafafa;
-}
+	
+
+	
+
+
+
+	
+	
+	
