@@ -1,40 +1,68 @@
+/*DO COLOR MIXIN*/
+	.do-color(@obj){
+		@bg: 	~'@{obj}-bg';
+		@bgf: 	~'@{obj}-bgf';
+		@bgi: 	~'@{obj}-bgi';
+		@f: 	~'@{obj}-f';
+		@h: 	~'@{obj}-h';
+		@a: 	~'@{obj}-a';
+		@ah:	~'@{obj}-ah';
+		& when (iscolor(@@bg)){	
+			background: fadeout(@@bg, @@bgf) @@bgi; 
+		}
+		& when (iscolor(@@f)){	
+			color: @@f;
+		}
+		& when (iscolor(@@h)){	
+			h1, h2, h3, h4, h5, h6 {
+				color: @@h;
+			}
+		}
+		& when (iscolor(@@a)){	
+			a 	{
+				color: @@a;
+			}
+		}
+		& when (iscolor(@@ah)){	
+			a:hover 	{
+				color: @@ah;
+			}
+		}
+	}
+/*DO COLOR MIXIN APPLIED*/
 	body {
-		background: @Body-bg @Body-i; 
-		color: @Content-f;
-		h1, h2, h3, h4, h5, h6 {
-			color: @Content-h;
-		}
-		a 	{
-			color: @Content-a;
-		}
-		a:hover {
-			color: @Content-ah;
-		}
+		.do-color(Body);
 	}
 	.menu-sub-top {
-		background: fadeout(@MenuSubTop-bg, @MenuSubTop-bgf);
-		color: @MenuSubTop-f;
-		a 		{color: @MenuSubTop-a;}
-		a:hover {color: @MenuSubTop-ah;}
+		.do-color(MenuSubTop);
 	}
 	#branding {
-		color: @Branding-f;
-		a 		{color: @Branding-a;}
-		a:hover {color: @Branding-ah;}
+		.do-color(Branding);
+	}
+	#sidebar {
+		.do-color(Sidebar);
+	}
+	.menu-sub-bottom {
+		.do-color(MenuSubBottom);
 	}
 	#menu {
 		background: @MainMenu-bg;
-		.menu-fix & {
-			background: fadeOut(@MainMenu-bg, 5);
+		.menu-fix  {
+			& when(isnumber(@MainMenu-bg)) {
+				background: fadeOut(@MainMenu-bg, 5);
+			}
 		}
 	}
+/*MENU MOBILE*/
 	.mobile {
 		.main-menu {
 			& .toggle {
 				color: #fff;
 				background: @color1;
-				&.on, &:hover {
-					background: darken(@MainMenu-bg, 10);
+				&.on, &:hover   {
+					& when(isnumber(@MainMenu-bg)) {
+						background: darken(@MainMenu-bg, 10);
+					}
 				}
 			}
 			> ul {
@@ -50,6 +78,7 @@
 			}
 		}
 	}
+/*MENU DESKTOP*/
 	.desktop {
 		.main-menu > ul {
 			li {
@@ -75,6 +104,7 @@
 			}
 		}
 	}
+/*MAIN CONTENT CONTAINER*/
 	#container {
 		background: fadeout(@Content-bg, @Content-bgf);
 		#content {
@@ -100,18 +130,9 @@
 				}
 			}
 		}
-		#sidebar {
-			color: @Sidebar-f;
-			a 		{color: @Sidebar-a;}
-			a:hover {color: @Sidebar-ah;}
-		}
+		
 	}
-	.menu-sub-bottom {
-		background: fadeout(@MenuSubBottom-bg, @MenuSubBottom-bgf);
-		color: @MenuSubBottom-f;
-		a 		{color: @MenuSubBottom-a;}
-		a:hover {color: @MenuSubBottom-ah;}
-	}
+	
 	
 	
 	

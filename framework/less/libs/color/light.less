@@ -1,41 +1,60 @@
 /*KEY
 	@x-bg:	Background Color;
 	@x-bgf:	Background Opacity;	
-	@x-i:	Background Image;	
-	@x-h: 	Font Color;
+	@x-bgi:	Background Image;	
+	@x-h: 	Header Color;
 	@x-f: 	Font Color;
 	@x-a: 	A Color;
 	@x-ah: 	A Hover;	
 	@x-hr: 	HR Color
 	@x-b: 	Border Color
+	
+	@-bg: 		;
+	@-bgf: 		;
+	@-bgi: 		;	
+	@-f: 		;
+	@-h: 		;
+	@-a: 		;
+	@-ah: 		;	
 */
 /*GLOBAL*/
 	@light-color: 			#fff;
 	
 /*BODY*/	
-	@Body-bg: 				darken(@light-color, 5%);
-	@Body-i: 				url(images/cutcube.png) fixed top center;
+	@Body-bg: 				darken(@light-color, 5%);;
+	@Body-bgf: 				0;
+	@Body-bgi: 				url(images/cutcube.png) fixed top center;;	
+	@Body-f: 				darken(@light-color, 55%);
+	@Body-h: 				darken(@light-color, 80%);
+	@Body-a: 				#333;
+	@Body-ah: 				@color1;	
 	
 /*TOP SUB MENU*/
 	@MenuSubTop-bg: 		@light-color;
-	@MenuSubTop-bgf: 		0;	
-	@MenuSubTop-f: 			#666;
-	@MenuSubTop-a: 			#333;
-	@MenuSubTop-ah: 		@color1;	
+	@MenuSubTop-bgf: 		0;
+	@MenuSubTop-bgi: 		;	
+	@MenuSubTop-f: 			;
+	@MenuSubTop-h: 			;
+	@MenuSubTop-a: 			;
+	@MenuSubTop-ah: 		;	
 
 /*BRANDING*/
-	@Branding-bg: 			'';
-	@Branding-bgf: 			0;	
-	@Branding-f: 			#666;
-	@Branding-a: 			#666;
-	@Branding-ah: 			#000;	
+	@Branding-bg: 			;
+	@Branding-bgf: 			0;
+	@Branding-bgi: 			;	
+	@Branding-f: 			;
+	@Branding-h: 			;
+	@Branding-a: 			;
+	@Branding-ah: 			;	
 
 /*MAIN MENU*/
 	@MainMenu-bg: 			@color1;
-	@MainMenu-bgf: 			0;	
+	@MainMenu-bgf: 			0;
+	@MainMenu-bgi: 			;	
 	@MainMenu-f: 			fadeOut(@light-color, 30);
+	@MainMenu-h: 			;
 	@MainMenu-a: 			fadeOut(@light-color, 30);
-	@MainMenu-ah: 			@light-color;
+	@MainMenu-ah: 			@light-color;	
 	
 /*MAIN MENU DROPDOWN*/
 	@MainMenuDrop-bg: 		@light-color;
@@ -54,18 +73,20 @@
 /*CONTENT*/
 	@Content-bg: 			@light-color;
 	@Content-bgf: 			30%;	
-	@Content-h: 			darken(@light-color, 80%);
-	@Content-f: 			darken(@light-color, 55%);
-	@Content-a: 			#333;
-	@Content-ah: 			@color1;
+	@Content-h: 			;
+	@Content-f: 			;
+	@Content-a: 			;
+	@Content-ah: 			;
 	@Content-hr: 			darken(@light-color, 10%);
 
 /*SIDEBAR*/
-	@Sidebar-bg: 			@light-color;
-	@Sidebar-bgf: 			0;	
-	@Sidebar-f: 			#555;
-	@Sidebar-a: 			@color2;
-	@Sidebar-ah: 			@color1;
+	@Sidebar-bg: 			;
+	@Sidebar-bgf: 			;	
+	@Sidebar-bgi: 			;	
+	@Sidebar-f: 			;
+	@Sidebar-h: 			@color1;
+	@Sidebar-a: 			;
+	@Sidebar-ah: 			;
 	@Sidebar-bc: 			darken(@light-color, 10%);
 	
 /*FOOTER*/
@@ -78,9 +99,11 @@
 /*BOTTOM SUB MENU*/
 	@MenuSubBottom-bg: 		@light-color;
 	@MenuSubBottom-bgf: 	0;	
-	@MenuSubBottom-f: 		#666;
-	@MenuSubBottom-a: 		#333;
-	@MenuSubBottom-ah: 		@color1;
+	@MenuSubBottom-bgi: 	;	
+	@MenuSubBottom-f: 		;
+	@MenuSubBottom-h: 		;
+	@MenuSubBottom-a: 		;
+	@MenuSubBottom-ah: 		;
 
 /*=======================================================*/
 /*INPUT TYPE TEXT*/
