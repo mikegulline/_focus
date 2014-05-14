@@ -1,4 +1,3 @@
-
 	body {
 		background: @Body-bg @Body-i; 
 		color: @Content-f;
@@ -27,6 +26,53 @@
 		background: @MainMenu-bg;
 		.menu-fix & {
 			background: fadeOut(@MainMenu-bg, 5);
+		}
+	}
+	.mobile {
+		.main-menu {
+			& .toggle {
+				color: #fff;
+				background: @color1;
+				&.on, &:hover {
+					background: darken(@MainMenu-bg, 10);
+				}
+			}
+			> ul {
+				background:  @MainMenuMobile-bg;
+				li {
+					a {
+						color:  @MainMenuMobile-a;
+						&:hover {
+							color:  @MainMenuMobile-ah;
+						}
+					}
+				}
+			}
+		}
+	}
+	.desktop {
+		.main-menu > ul {
+			li {
+				a {
+					color: @MainMenuDrop-a;
+					&:hover {
+						color: @MainMenuDrop-ah;
+					}
+				}
+				ul {
+					li  {
+						background: @MainMenuDrop-bg;
+					}
+				}
+			}
+			> li {
+				> a {
+					color: @MainMenu-a !important;
+					&:hover {
+						color: @MainMenu-ah !important;
+					}
+				}
+			}
 		}
 	}
 	#container {
@@ -75,53 +121,7 @@
 	
 	
 	
-	.mobile {
-		.main-menu {
-			& .toggle {
-				color: #fff;
-				background: @color1;
-				&.on, &:hover {
-					background: darken(@MainMenu-bg, 10);
-				}
-			}
-			> ul {
-				background:  @MainMenuMobile-bg;
-				li {
-					a {
-						color:  @MainMenuMobile-a;
-						&:hover {
-							color:  @MainMenuMobile-ah;
-						}
-					}
-				}
-			}
-		}
-	}
-	.desktop {
-		.main-menu > ul {
-			li {
-				a {
-					color: @MainMenuDrop-a;
-					&:hover {
-						color: @MainMenuDrop-ah;
-					}
-				}
-				ul {
-					li  {
-						background: @MainMenuDrop-bg;
-					}
-				}
-			}
-			> li {
-				> a {
-					color: @MainMenu-a;
-					&:hover {
-						color: @MainMenu-ah;
-					}
-				}
-			}
-		}
-	}
+
 	
 	
 	
