@@ -87,6 +87,7 @@ function _focus_comments_number( $count ){
 	
 // Add Image Infos =========================================================
 	add_image_size( 'liqid-feature', 840, 9999);
+	add_image_size( 'liqid-feature-fixed', 840, 420, true);
 	
 // Add Main Menu Functions =========================================================	
 	function liqid_wp_old_menu(){

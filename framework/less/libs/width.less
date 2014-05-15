@@ -1,4 +1,3 @@
-
 .width(@siteP, @w-site, @w-sidebar, @font-size: ''){
 	@p-site:  		10px @siteP;
 	@p-sidebarR: 	10px @siteP 10px 0;
@@ -34,6 +33,9 @@
 	}  
 	#content {
 		width: @w-site - @w-sidebar - @siteP - @siteP;
+		&.full-width {
+			width: @w-site - @siteP - @siteP;
+		}
 	}
 	#sidebar {
 		width: @w-sidebar - @siteP;
