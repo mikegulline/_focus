@@ -2,6 +2,16 @@ window.onload = function(){
 	lq_scroll_to_anchor.init()
 	
 }
+var getTop = function(){
+	var h = parseInt(jQuery('html').css('margin-top'))
+	jQuery('.menu-fix >').each(function(){
+		h += parseInt(jQuery(this).attr('data-height'))
+	})
+	return h
+}
+var rand = function() {
+    return Math.random().toString(36).substr(8); // remove `0.`
+};
 // cool image pan code
 jQuery(function() {
 	lq_pano.init()
@@ -14,20 +24,23 @@ var lq_scroll_list = {
 			var t = jQuery(this)
 			jQuery('.entry-content h3').each(function(){
 				var h3 = jQuery(this)
-				var token = h3.text().toLowerCase().replace(/ /g, '-')
+				var token = h3.text().toLowerCase().replace(/[^a-z0-9]/gi, '-').replace(/--/g, '-')+'-'+rand()
 				h3.prop('id', token)
 				t.append('<li><a href="#'+token+'">'+h3.text()+'</a></li>')
 			})
 			var sticky = jQuery('#primary')
-			sticky.prop('style', 'width: '+sticky.width()+'px;')
 			var top = sticky[0].getBoundingClientRect()
-			var top = top.top-45-jQuery('.menu-sub-top').height()-jQuery('#menu').height()-parseInt(jQuery('html').css('margin-top'))
+			var top = top.top-45-getTop()
 			var win = jQuery(window)
 			win.bind('load scroll '+ ori(), function(event){
 				if(win.scrollTop()<=top){
-					sticky.removeClass('stick')
+					if(sticky.hasClass('stick')){
+						sticky.removeClass('stick').prop('style', '')
+					}
 				}else{
-					sticky.addClass('stick')
+					if(!sticky.hasClass('stick')){
+						sticky.prop('style', 'top: '+(getTop())+'px;width: '+sticky.width()+'px;').addClass('stick')
+					}
 				}
 			});
 		})
