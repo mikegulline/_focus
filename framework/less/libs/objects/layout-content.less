@@ -22,6 +22,7 @@
 }
 .entry-content  {
 	margin-bottom: @margin-large;
+	position:relative;
 }
 .round99 {
 	#hl>.round-all-corners(99px);
@@ -30,4 +31,28 @@
 	margin-left: auto;
 	margin-right: auto;
 	display: block;
+}
+.pan-frame {
+	 position: relative;
+	 overflow: hidden;
+	 img {
+		position: absolute;
+		top: 0;	 
+	}
+}
+.emb1 {
+	 position: absolute;
+	 top: 20px;
+	 right: -30px;
+	 &:hover {
+		z-index: 2 
+	}
+}
+.emb2 {
+	 position: absolute;
+	 top: 170px;
+	 right: -30px; 
+	 &:hover {
+		z-index: 2 
+	}
 }

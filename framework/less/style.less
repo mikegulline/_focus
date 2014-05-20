@@ -73,6 +73,11 @@
 		   -moz-box-shadow: @arguments;
 				box-shadow: @arguments;
 	}
+	.round(@radius: 5px) {
+		-webkit-border-radius: @radius;
+		   -moz-border-radius: @radius;
+				border-radius: @radius;
+	  }
 }
 	
 
@@ -96,3 +101,51 @@
 // @import "libs/components/panels.less";
 // @import "libs/components/wells.less";
 */	
+.steps {
+	position: relative;
+	padding-left: 100px;
+	min-height: 100px;
+	margin-bottom: 30px;
+	.count {
+		position: absolute;
+		top: 0;
+		left: 0;
+		color: @color1;
+		font-size:60px;
+		line-height:70px;
+		height: 80px;
+		width: 80px;
+		text-align:center;
+		//background: rgba(0,0,0,.1);
+		background: #fff;
+		#mg>.shadow(0 5px 10px rgba(0,0,0,.2));
+		#mg>.round(99px);
+	}
+	.w320 & {
+		padding-left: 50px;
+		min-height: 50px;
+		.count {
+			font-size:30px;
+			line-height:35px;
+			height: 40px;
+			width: 40px;
+		}	
+	}
+	&.step-right {
+		padding-left: 0px;
+		padding-right: 100px;
+		.count {
+			left: auto;
+			right: 0;
+			color: @color1;
+		}
+		.w320 & {
+			padding-left: 0;
+			padding-right: 50px;
+		}
+	}
+}
+#primary.stick {
+	position: fixed;
+	top: 105px;
+}

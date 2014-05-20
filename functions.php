@@ -67,7 +67,10 @@ function _focus_comments_number( $count ){
 // inc files ================================================
 /**/
 	$includes = array(
-		'framework/customize/_init.php'
+		'framework/customize/_init.php',
+		'framework/shortcodes/contact-form.php',
+		'framework/shortcodes/steps.php',
+		'framework/shortcodes/blog.php'
 		
 	);
 	foreach ( $includes as $i ) {
@@ -112,4 +115,21 @@ function _focus_comments_number( $count ){
 		return $old;
 	}
 
+// Add Main Menu Functions =========================================================	
+	if (class_exists('MultiPostThumbnails')) {
+        new MultiPostThumbnails(
+            array(
+                'label' => 'Secondary Image',
+                'id' => 'secondary-image',
+                'post_type' => 'post'
+            )
+        );
+		new MultiPostThumbnails(
+			array(
+                'label' => 'Third Image',
+                'id' => 'third-image',
+                'post_type' => 'post'
+            )
+        );
+    }
 ?>
