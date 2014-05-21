@@ -19,36 +19,57 @@ jQuery(function() {
 });
 var lq_scroll_list = {
 	init: function(){
-		var t = this
 		jQuery('.scroll-list').each(function(){
 			var t = jQuery(this)
-			jQuery('.entry-content h3').each(function(){
-				var h3 = jQuery(this)
-				var token = h3.text().toLowerCase().replace(/[^a-z0-9]/gi, '-').replace(/--/g, '-')+'-'+rand()
-				h3.prop({'id': token, 'class': 'list-entry'})
-				t.append('<li><a href="#'+token+'">'+h3.text()+'</a></li>')
-			})
-			var testEntries = jQuery('.list-entry')
-			var sticky = jQuery('#primary')
-			var top = sticky[0].getBoundingClientRect()
-			var top = top.top-45-getTop()
-			var win = jQuery(window)
-			win.bind('load scroll '+ ori(), function(event){
-				testEntries.each(function(){
-					var te = jQuery(this)
-					if(te.position().top<win.scrollTop()){
-						jQuery('#s').val(Math.round(te.position().top)+'<'+win.scrollTop())
-						t.find('.active').removeClass('active')
-						jQuery('[href=#'+te.prop('id')+']').addClass('active')
+			var cnt = 1
+			// make menu from h2 and h4 elements
+			jQuery('.entry-content h2').each(function(){
+				var h2 = jQuery(this)
+				var cntSub = 1
+				var h4 = ''
+				var token = h2.text().toLowerCase().replace(/[^a-z0-9]/gi, '-').replace(/--/g, '-')+'-'+rand()
+				h2.attr({'id': token, 'class': 'list-entry'}).prepend(cnt+') ')
+				h2.nextUntil('h2').each(function(){
+					var e = jQuery(this)
+					if(e.prop('tagName')=='H4'){
+						var token2 = e.text().toLowerCase().replace(/[^a-z0-9]/gi, '-').replace(/--/g, '-')+'-'+rand()
+						e.attr({'id': token2, 'class': 'list-entry-sub'}).prepend(cnt+'.'+cntSub+') ')
+						h4 += '<li><a href="#'+token2+'">'+e.text()+'</a></li>'
+						cntSub++
 					}
 				})
+				t.append('<li><a href="#'+token+'">'+h2.text()+'</a>'+(h4?'<ul>'+h4+'</ul>':'')+'</li>')
+				cnt++
+			})
+			var testEntries = jQuery('.list-entry')
+			var testEntriesSub = jQuery('.list-entry-sub')
+			var sticky = jQuery('#primary')
+			var top = sticky[0].getBoundingClientRect().top-45-getTop()
+			var win = jQuery(window)
+			win.bind('load scroll '+ ori(), function(event){
+				// highlights current menu itrem
+				testEntries.each(function(){
+					var te = jQuery(this)
+					if(te.position().top<win.scrollTop()&&te[0].getBoundingClientRect().top<getTop()+50){
+						t.find('.active').removeClass('active')
+						jQuery('[href=#'+te.attr('id')+']').parent().addClass('active')
+					}
+				})
+				testEntriesSub.each(function(){
+					var te = jQuery(this)
+					if(te.position().top<win.scrollTop()&&te[0].getBoundingClientRect().top<getTop()+50){
+						t.find('ul .active').removeClass('active')
+						jQuery('[href=#'+te.attr('id')+']').parent().addClass('active')
+					}
+				})
+				// makes menu stick and not sticky
 				if(win.scrollTop()<=top){
 					if(sticky.hasClass('stick')){
-						sticky.removeClass('stick').prop('style', '')
+						sticky.removeClass('stick').attr({'style': ''})
 					}
 				}else{
 					if(!sticky.hasClass('stick')){
-						sticky.prop('style', 'top: '+(getTop())+'px;width: '+sticky.width()+'px;').addClass('stick')
+						sticky.attr({'style': 'top: '+(getTop())+'px;width: '+sticky.width()+'px;'}).addClass('stick')
 					}
 				}
 			});
@@ -102,19 +123,19 @@ jQuery(function() {
 		if(testEvent.length){
 			event.preventDefault()
 			var toggle = jQuery('.'+testEvent.attr('data-target'))
-			if(toggle.hasClass('active')){
+			if(toggle.hasClass('active menu')){
 				toggle.removeClass('active')
 				testEvent.removeClass('on')
 			}else{
-				jQuery('.active').removeClass('active')
+				jQuery('.menu.active').removeClass('active')
 				jQuery('.on').removeClass('on')
 				toggle.addClass('active')
 				testEvent.addClass('on')
 			}
 		}else{
-			var testEvent = jQuery(event.target).closest('.active')
+			var testEvent = jQuery(event.target).closest('.menu.active')
 			if(!testEvent.length){
-				jQuery('.active').removeClass('active')
+				jQuery('.menu.active').removeClass('active')
 				jQuery('.on').removeClass('on')
 			}
 		}
@@ -167,7 +188,10 @@ var lq_width_triggers = {
 			else if(w>=768) bod.removeClass(classes).addClass('w768 desktop')
 			else if(w>=480) bod.removeClass(classes).addClass('w480 mobile')
 			else if(w>=320) bod.removeClass(classes).addClass('w320 mobile')
-			if(classes != bod.attr('class')) lq_pano.init()
+			if(classes != bod.attr('class')) {
+				lq_pano.init()
+				//lq_scroll_list.init()
+			}
 		});
 	},
 };

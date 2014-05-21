@@ -20,7 +20,7 @@
 		@side-border-width: 1px;
 		@article-border-width: 1px;	
 	/*highlight colors*/
-		@color1: #a9ce49;
+		@color1: #2a7bd6;//#a9ce49;
 		@color2: #333;//#5e7bac;
 	/*base color theme*/
 		@theme: light; 			/* light || dark */
@@ -149,11 +149,37 @@
 	position: fixed;
 }
 .scroll-list {
-	.active {
-		font-weight: bold;
-	}
 	> li {
 		padding-bottom: 5px;
+		ul {
+			display:none;
+			padding-left: 15px;
+			margin-left: 3px;
+			border-left: 1px dotted @color1;
+			li {
+				font-size: 90%;
+				position:relative;
+			}
+			li:before {
+				border-top: 1px dotted @color1;
+				content: "";
+				display: block;
+				height: 1px;
+				left: -15px;
+				position: absolute;
+				top: 0.7em;
+				width: 10px;
+			}
+		}
 	}
-	
+	> li.active > a  {
+		font-weight: bold;
+	}
+	> li li.active a {
+		text-decoration: underline;
+		color: @color1;
+	}
+	.active ul {
+		display: block;
+	}
 }
