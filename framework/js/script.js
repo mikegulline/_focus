@@ -25,14 +25,23 @@ var lq_scroll_list = {
 			jQuery('.entry-content h3').each(function(){
 				var h3 = jQuery(this)
 				var token = h3.text().toLowerCase().replace(/[^a-z0-9]/gi, '-').replace(/--/g, '-')+'-'+rand()
-				h3.prop('id', token)
+				h3.prop({'id': token, 'class': 'list-entry'})
 				t.append('<li><a href="#'+token+'">'+h3.text()+'</a></li>')
 			})
+			var testEntries = jQuery('.list-entry')
 			var sticky = jQuery('#primary')
 			var top = sticky[0].getBoundingClientRect()
 			var top = top.top-45-getTop()
 			var win = jQuery(window)
 			win.bind('load scroll '+ ori(), function(event){
+				testEntries.each(function(){
+					var te = jQuery(this)
+					if(te.position().top<win.scrollTop()){
+						jQuery('#s').val(Math.round(te.position().top)+'<'+win.scrollTop())
+						t.find('.active').removeClass('active')
+						jQuery('[href=#'+te.prop('id')+']').addClass('active')
+					}
+				})
 				if(win.scrollTop()<=top){
 					if(sticky.hasClass('stick')){
 						sticky.removeClass('stick').prop('style', '')
