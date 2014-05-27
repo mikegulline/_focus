@@ -15,7 +15,7 @@
     <?php endwhile; endif; ?>
 </section>
 <aside id="sidebar" role="complementary">
-    <div id="primary" class="widget-area">
+    <div id="primary" class="widget-area lq-scroll-list">
         <ul class="xoxo">
         	<li>
             	<h3><?php echo $post->post_title ?></h3>
